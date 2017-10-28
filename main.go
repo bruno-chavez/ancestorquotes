@@ -23,8 +23,8 @@ func main() {
 	app := cli.NewApp()
 	app.Name = "ancestorquotes"
 	app.Author = "bruno-chavez"
-	app.Usage = "brings quotes from the darkest of dungeons"
-	app.Version = "1.0"
+	app.Usage = "brings quotes from the darkest of dungeons!"
+	app.Version = "0.1"
 	app.Action = func(c *cli.Context) error {
 
 		json.Unmarshal(quotes.Q(), &quoteSlice)
