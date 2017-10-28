@@ -22,7 +22,7 @@ $ go get -u github.com/bruno-chavez/ancestorquotes
 Then go to:
 
 ```
-GO_FILE/src/github.com/bruno-chavez/ancetorquotes
+GO_DIR/src/github.com/bruno-chavez/ancetorquotes
 ```
 
 On a terminal type:

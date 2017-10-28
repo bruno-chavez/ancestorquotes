@@ -30,7 +30,7 @@ func main() {
 
 		json.Unmarshal(quotes.Q(), &quoteSlice)
 		selectedQuote := quoteSlice[rand.Intn(len(quoteSlice))]
-		fmt.Printf("%v", selectedQuote.Quote)
+		fmt.Printf("%v", selectedQuote.Quote + "\n")
 		return nil
 	}
 	app.Run(os.Args)
