@@ -7,8 +7,9 @@ import (
 	"github.com/urfave/cli"
 	"encoding/json"
 	"time"
-	"github.com/bruno-chavez/ancestorquotes/quotes"
-)
+	//"github.com/bruno-chavez/ancestorquotes"
+	"ancestorquotes/quotes"
+	)
 
 type Quotes struct {
 	Quote string `json:"quote"`
