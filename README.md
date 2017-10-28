@@ -15,7 +15,7 @@ https://golang.org/doc/install
 Once installed, and with a correctly configured GOPATH type:
 
 ```
-$ go get -u github.com/spolu/warp/client/cmd/warp
+$ go get -u 	github.com/bruno-chavez/ancestorquotes
 ```
 
 
