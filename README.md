@@ -15,7 +15,7 @@ https://golang.org/doc/install
 Once installed, and with a correctly configured GOPATH type:
 
 ```
-$ go get -u 	github.com/bruno-chavez/ancestorquotes
+$ go get -u github.com/bruno-chavez/ancestorquotes
 ```
 
 
