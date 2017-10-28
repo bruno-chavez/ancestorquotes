@@ -41,6 +41,34 @@ $ ancestorquotes
 Remind yourself that overconfidence is a slow and insidious killer.
 ```
 
+## Sub commands
+
+help: Shows general info about the proyect.
+
+```
+$ ancestorquotes help
+NAME:
+   ancestorquotes - brings quotes from the darkest of dungeons!
+
+USAGE:
+   ancestorquotes [global options] command [command options] [arguments...]
+
+VERSION:
+   0.1
+
+AUTHOR:
+   bruno-chavez
+
+COMMANDS:
+     help, h  Shows a list of commands or help for one command
+
+GLOBAL OPTIONS:
+   --help, -h     show help
+   --version, -v  print the version
+
+
+```
+
 ## Notes
 
 This is a pretty small and niche project, created mainly to have fun, so do that!
