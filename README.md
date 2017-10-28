@@ -1,4 +1,4 @@
-`ancestorquotes` is a fun, little command-line tool written in go,
+`ancestorquotes` is a fun, little command-line tool written in Go,
 which prints a random quote used by the Ancestor or also known as
 the Narrator from the Darkest Dungeon videogame.
 
