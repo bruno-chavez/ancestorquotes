@@ -1,6 +1,7 @@
-`ancestorquotes` is a fun, little command-line tool written in Go,
+`ancestorquotes` is a fun, little command-line app written in Go,
 which prints a random quote used by the Ancestor or also known as
 the Narrator from the Darkest Dungeon videogame.
+
 
 ## Installation
 
@@ -77,5 +78,11 @@ so do that!
 Complete list of quotes to be added soon.
 
 Only tested on Linux.
+
+Quotes are parsed from quotes.go which contains a json
+top level array.
+
+Complete list of quotes can be found
+[here](https://darkestdungeon.gamepedia.com/Narrator).
 
 Heavely inspired by [motivate](https://github.com/mubaris/motivate).
