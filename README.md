@@ -85,4 +85,4 @@ top level array.
 Complete list of quotes can be found
 [here](https://darkestdungeon.gamepedia.com/Narrator).
 
-Heavely inspired by [motivate](https://github.com/mubaris/motivate).
+Heavely inspired by [motivate](https://github.com/mubaris/motivate) and [this reddit bot](https://www.reddit.com/r/darkestdungeon/comments/7877vx/darkest_dungeon_ancestor_quote_bot/)
