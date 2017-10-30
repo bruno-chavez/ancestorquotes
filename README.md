@@ -42,7 +42,7 @@ $ ancestorquotes
 Remind yourself that overconfidence is a slow and insidious killer.
 ```
 
-## Sub commands
+## Commands
 
 help: Shows general info about `ancestorquotes`.
 
@@ -69,6 +69,24 @@ GLOBAL OPTIONS:
 
 
 ```
+persistent: it allows `ancestorquotes` to run every x amount of minutes where x is a number between 0 and 59
+
+```
+$ ancestorquotes persistent 5
+
+ancestorquotes will run every 5 minutes!
+```
+
+### Sub command
+
+stop: allows `ancestorquotes` to stop its curring cycle.
+
+```
+$ ancestorquotes persistent stop
+
+ancestorquotes stopped!
+```
+
 
 ## Notes
 
