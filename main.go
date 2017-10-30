@@ -25,6 +25,14 @@ func main() {
 	app.Author = "bruno-chavez"
 	app.Usage = "brings quotes from the darkest of dungeons!"
 	app.Version = "0.1"
+	app.Commands = []cli.Command{
+		Name: "persistent",
+		Usage: "makes the app execute itself on a regular basis",
+		Aliases: []string{"p"},
+		Action: func(c *cli.Context) error {
+			fmt.Println("Hello world")
+		}
+	}
 	app.Action = func(c *cli.Context) error {
 
 		json.Unmarshal(quotes.Q(), &quoteSlice)
