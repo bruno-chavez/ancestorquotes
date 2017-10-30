@@ -8,12 +8,12 @@ the Narrator from the Darkest Dungeon videogame.
 
 ### Linux
 
-#### From source code
+#### From source code:
 
 Requires Go to be installed on your machine. You can install Go from
 https://golang.org/doc/install
 
-Once installed, and with a correctly configured GOPATH type:
+Once installed, and with a correctly configured GOPATH, type:
 
 ```
 $ go get -u github.com/bruno-chavez/ancestorquotes
@@ -44,7 +44,7 @@ Remind yourself that overconfidence is a slow and insidious killer.
 
 ## Sub commands
 
-help: Shows general info about the proyect.
+help: Shows general info about `ancestorquotes`.
 
 ```
 $ ancestorquotes help
@@ -85,4 +85,5 @@ top level array.
 Complete list of quotes can be found
 [here](https://darkestdungeon.gamepedia.com/Narrator).
 
-Heavely inspired by [motivate](https://github.com/mubaris/motivate) and [this reddit bot](https://www.reddit.com/r/darkestdungeon/comments/7877vx/darkest_dungeon_ancestor_quote_bot/)
+Heavely inspired by [motivate](https://github.com/mubaris/motivate) and 
+[this reddit bot](https://www.reddit.com/r/darkestdungeon/comments/7877vx/darkest_dungeon_ancestor_quote_bot/)
