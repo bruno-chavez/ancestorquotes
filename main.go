@@ -1,13 +1,15 @@
 package main
 
 import (
+	"encoding/json"
 	"fmt"
 	"math/rand"
 	"os"
-	"github.com/urfave/cli"
-	"encoding/json"
 	"time"
+	"github.com/urfave/cli"
+	"github.com/robfig/cron"
 	"github.com/bruno-chavez/ancestorquotes/quotes"
+	"github.com/bruno-chavez/ancestorquotes/slices"
 	)
 
 type Quotes struct {
@@ -29,6 +31,13 @@ func main() {
 		Name: "persistent",
 		Usage: "makes the app execute itself on a regular basis",
 		Aliases: []string{"p"},
+		/*Subcommand: []cli.Command{
+			Aliases: slices.SecondsMinutes()
+			Action: func(c *cli.Context) error {
+			c := cron.New()
+			fmt.Println(c.String)
+		
+		}*/
 		Action: func(c *cli.Context) error {
 			fmt.Println("Hello world")
 		}
