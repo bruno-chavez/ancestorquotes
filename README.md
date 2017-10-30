@@ -42,7 +42,7 @@ $ ancestorquotes
 Remind yourself that overconfidence is a slow and insidious killer.
 ```
 
-## Sub commands
+## Commands
 
 help: Shows general info about `ancestorquotes`.
 
