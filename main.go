@@ -27,10 +27,16 @@ func main() {
 	app.Version = "0.1"
 	app.Action = func(c *cli.Context) error {
 
-		json.Unmarshal(quotes.Q(), &quoteSlice)
-		selectedQuote := quoteSlice[rand.Intn(len(quoteSlice))]
-		fmt.Printf("%v", selectedQuote.Quote + "\n")
-		return nil
+		err := json.Unmarshal(quotes.Q(), &quoteSlice)
+		if err != nil{
+			panic(err)
+
+		} else{
+			selectedQuote := quoteSlice[rand.Intn(len(quoteSlice))]
+			fmt.Printf("%v", selectedQuote.Quote + "\n")
+			return nil
+		}
+
 	}
 	app.Run(os.Args)
 }

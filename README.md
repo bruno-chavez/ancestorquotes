@@ -75,8 +75,6 @@ GLOBAL OPTIONS:
 This is a pretty small and niche project, created mainly to have fun,
 so do that!
 
-Complete list of quotes to be added soon.
-
 Only tested on Linux.
 
 Quotes are parsed from quotes.go which contains a json
