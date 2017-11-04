@@ -61,14 +61,14 @@ AUTHOR:
    bruno-chavez
 
 COMMANDS:
-     help, h  Shows a list of commands or help for one command
+     persistent, p  makes the app execute itself on a regular basis
+     help, h        Shows a list of commands or help for one command
 
 GLOBAL OPTIONS:
    --help, -h     show help
    --version, -v  print the version
-
-
 ```
+
 persistent: it allows `ancestorquotes` to run every x amount of minutes where x is a number between 0 and 59
 
 ```
@@ -92,8 +92,6 @@ ancestorquotes stopped!
 
 This is a pretty small and niche project, created mainly to have fun,
 so do that!
-
-Complete list of quotes to be added soon.
 
 Only tested on Linux.
 

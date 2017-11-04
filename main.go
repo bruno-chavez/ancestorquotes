@@ -7,10 +7,10 @@ import (
 	"os"
 	"time"
 	"github.com/urfave/cli"
-	"github.com/robfig/cron"
+	_"github.com/robfig/cron"
 	"github.com/bruno-chavez/ancestorquotes/quotes"
 	"github.com/bruno-chavez/ancestorquotes/slices"
-	)
+)
 
 type Quotes struct {
 	Quote string `json:"quote"`
@@ -28,19 +28,18 @@ func main() {
 	app.Usage = "brings quotes from the darkest of dungeons!"
 	app.Version = "0.1"
 	app.Commands = []cli.Command{
-		Name: "persistent",
-		Usage: "makes the app execute itself on a regular basis",
-		Aliases: []string{"p"},
-		/*Subcommand: []cli.Command{
-			Aliases: slices.SecondsMinutes()
-			Action: func(c *cli.Context) error {
-			c := cron.New()
-			fmt.Println(c.String)
-		
-		}*/
-		Action: func(c *cli.Context) error {
-			fmt.Println("Hello world")
-		}
+		{
+			Name:    "persistent",
+			Usage:   "makes the app execute itself on a regular basis",
+			Aliases: []string{"p"},
+			Subcommands: []cli.Command{
+				{
+					Action: func(c *cli.Context) {
+
+					},
+					},
+					},
+					},
 	}
 	app.Action = func(c *cli.Context) error {
 
