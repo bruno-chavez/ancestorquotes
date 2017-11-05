@@ -5,14 +5,10 @@ import (
 	"github.com/bruno-chavez/ancestorquotes/slices"
 	"github.com/robfig/cron"
 	"github.com/urfave/cli"
-	"math/rand"
 	"os"
-	"time"
 )
 
 func main() {
-
-	rand.Seed(time.Now().UTC().UnixNano())
 
 	app := cli.NewApp()
 	app.Name = "ancestorquotes"
@@ -22,18 +18,48 @@ func main() {
 	app.Commands = []cli.Command{
 		{
 			Name:    "persistent",
-			Usage:   "schedules the app to run every x amount of minutes",
+			Usage:   "schedules the app to run every x amount of time",
 			Aliases: []string{"p"},
 			Subcommands: []cli.Command{
 				{
 					Name:    "minutes",
-					Usage:   "sets the interval for the scheduled run",
-					Aliases: slices.MinutesDay(),
+					Usage:   "minutes between every quote, value accepted if between 1 and 1439",
+					Aliases: []string{"m"},
 					Action: func(c *cli.Context) error {
-						schedule := cron.New()
-						schedule.AddFunc("1 * * * * *", random.RandomQuote)
-						schedule.Run()
+
 						return nil
+					},
+					Subcommands: []cli.Command{
+						{
+							Aliases: slices.MinutesDay(),
+							Hidden:  true,
+							Action: func(c *cli.Context) error {
+								schedule := cron.New()
+								schedule.AddFunc("", random.RandomQuote)
+								schedule.Run()
+								return nil
+							},
+						},
+					},
+				},
+				{
+					Name:    "seconds",
+					Usage:   "seconds between every quote, value accepted if between 1 and 59",
+					Aliases: []string{"m"},
+					Action: func(c *cli.Context) error {
+						return nil
+					},
+					Subcommands: []cli.Command{
+						{
+							Aliases: slices.SecondsMinute(),
+							Hidden:  true,
+							Action: func(c *cli.Context) error {
+								schedule := cron.New()
+								schedule.AddFunc("", random.RandomQuote)
+								schedule.Run()
+								return nil
+							},
+						},
 					},
 				},
 				{
