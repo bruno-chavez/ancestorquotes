@@ -1,9 +1,7 @@
 package main
 
 import (
-	"encoding/json"
-	"fmt"
-	"github.com/bruno-chavez/ancestorquotes/quotes"
+	"github.com/bruno-chavez/ancestorquotes/random"
 	"github.com/bruno-chavez/ancestorquotes/slices"
 	"github.com/robfig/cron"
 	"github.com/urfave/cli"
@@ -12,15 +10,9 @@ import (
 	"time"
 )
 
-type Quotes struct {
-	Quote string `json:"quote"`
-}
-
 func main() {
 
 	rand.Seed(time.Now().UTC().UnixNano())
-
-	quoteSlice := make([]Quotes, 0)
 
 	app := cli.NewApp()
 	app.Name = "ancestorquotes"
@@ -36,10 +28,10 @@ func main() {
 				{
 					Name:    "minutes",
 					Usage:   "sets the interval for the scheduled run",
-					Aliases: slices.SecondsMinutes(),
+					Aliases: slices.MinutesDay(),
 					Action: func(c *cli.Context) error {
 						schedule := cron.New()
-						schedule.AddFunc("1> * * * * *", func() { fmt.Println("henlo") })
+						schedule.AddFunc("1 * * * * *", random.RandomQuote)
 						schedule.Run()
 						return nil
 					},
@@ -59,10 +51,7 @@ func main() {
 	}
 
 	app.Action = func(c *cli.Context) error {
-
-		json.Unmarshal(quotes.Q(), &quoteSlice)
-		selectedQuote := quoteSlice[rand.Intn(len(quoteSlice))]
-		fmt.Printf("%v", selectedQuote.Quote+"\n")
+		random.RandomQuote()
 		return nil
 	}
 

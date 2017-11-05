@@ -1,6 +1,7 @@
+//Package quotes contains all the quotes in a single top level json array
 package quotes
 
-func Q()[]byte{
+func Q() []byte {
 	quotes := []byte(`[
   {
     "quote": "Brigands have the run of these lanes, keep to the side path, the Hamlet is just ahead."
