@@ -3,13 +3,13 @@ package main
 import (
 	"encoding/json"
 	"fmt"
+	"github.com/bruno-chavez/ancestorquotes/quotes"
+	"github.com/bruno-chavez/ancestorquotes/slices"
+	"github.com/robfig/cron"
+	"github.com/urfave/cli"
 	"math/rand"
 	"os"
 	"time"
-	"github.com/urfave/cli"
-	_"github.com/robfig/cron"
-	"github.com/bruno-chavez/ancestorquotes/quotes"
-	"github.com/bruno-chavez/ancestorquotes/slices"
 )
 
 type Quotes struct {
@@ -30,23 +30,41 @@ func main() {
 	app.Commands = []cli.Command{
 		{
 			Name:    "persistent",
-			Usage:   "makes the app execute itself on a regular basis",
+			Usage:   "schedules the app to run every x amount of minutes",
 			Aliases: []string{"p"},
 			Subcommands: []cli.Command{
 				{
-					Action: func(c *cli.Context) {
-
+					Name:    "minutes",
+					Usage:   "sets the interval for the scheduled run",
+					Aliases: slices.SecondsMinutes(),
+					Action: func(c *cli.Context) error {
+						schedule := cron.New()
+						schedule.AddFunc("1> * * * * *", func() { fmt.Println("henlo") })
+						schedule.Run()
+						return nil
 					},
+				},
+				{
+					Name:    "stop",
+					Usage:   "stops the current scheduled run",
+					Aliases: []string{"s"},
+					Action: func(c *cli.Context) error {
+						schedule := cron.New()
+						schedule.Stop()
+						return nil
 					},
-					},
-					},
+				},
+			},
+		},
 	}
+
 	app.Action = func(c *cli.Context) error {
 
 		json.Unmarshal(quotes.Q(), &quoteSlice)
 		selectedQuote := quoteSlice[rand.Intn(len(quoteSlice))]
-		fmt.Printf("%v", selectedQuote.Quote + "\n")
+		fmt.Printf("%v", selectedQuote.Quote+"\n")
 		return nil
 	}
+
 	app.Run(os.Args)
 }
