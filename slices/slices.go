@@ -7,18 +7,8 @@ import (
 	"strconv"
 )
 
-func MinutesDay() []string {
-	slice := make([]string, 1440)
-
-	for i := 1; i < 1440; i++ {
-		slice[i] = strconv.Itoa(i)
-	}
-
-	return slice
-}
-
-func SecondsMinute() []string {
-	slice := make([]string, 1440)
+func SecondsMinutes() []string {
+	slice := make([]string, 60)
 
 	for i := 1; i < 60; i++ {
 		slice[i] = strconv.Itoa(i)

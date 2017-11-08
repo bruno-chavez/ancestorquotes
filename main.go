@@ -1,6 +1,7 @@
 package main
 
 import (
+	"github.com/bruno-chavez/ancestorquotes/converter"
 	"github.com/bruno-chavez/ancestorquotes/random"
 	"github.com/bruno-chavez/ancestorquotes/slices"
 	"github.com/robfig/cron"
@@ -23,7 +24,7 @@ func main() {
 			Subcommands: []cli.Command{
 				{
 					Name:    "minutes",
-					Usage:   "minutes between every quote, value accepted if between 1 and 1439",
+					Usage:   "minutes between every quote, value accepted if between 1 and 59",
 					Aliases: []string{"m"},
 					Action: func(c *cli.Context) error {
 
@@ -31,11 +32,11 @@ func main() {
 					},
 					Subcommands: []cli.Command{
 						{
-							Aliases: slices.MinutesDay(),
+							Aliases: slices.SecondsMinutes(),
 							Hidden:  true,
 							Action: func(c *cli.Context) error {
 								schedule := cron.New()
-								schedule.AddFunc("", random.RandomQuote)
+								schedule.AddFunc(converter.TimeConverter(os.Args[3], "minutes"), random.RandomQuote)
 								schedule.Run()
 								return nil
 							},
@@ -45,31 +46,21 @@ func main() {
 				{
 					Name:    "seconds",
 					Usage:   "seconds between every quote, value accepted if between 1 and 59",
-					Aliases: []string{"m"},
+					Aliases: []string{"s"},
 					Action: func(c *cli.Context) error {
 						return nil
 					},
 					Subcommands: []cli.Command{
 						{
-							Aliases: slices.SecondsMinute(),
+							Aliases: slices.SecondsMinutes(),
 							Hidden:  true,
 							Action: func(c *cli.Context) error {
 								schedule := cron.New()
-								schedule.AddFunc("", random.RandomQuote)
+								schedule.AddFunc(converter.TimeConverter(os.Args[3], "seconds"), random.RandomQuote)
 								schedule.Run()
 								return nil
 							},
 						},
-					},
-				},
-				{
-					Name:    "stop",
-					Usage:   "stops the current scheduled run",
-					Aliases: []string{"s"},
-					Action: func(c *cli.Context) error {
-						schedule := cron.New()
-						schedule.Stop()
-						return nil
 					},
 				},
 			},
