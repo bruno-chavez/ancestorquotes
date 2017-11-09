@@ -943,5 +943,5 @@ func Q() []byte {
     "quote": "Mercifully, the morbid encounter resolved itself in my favor, and I set to work pursuing degeneracy in its most decadent forms. The air pulsed with anticipation as I revealed the unnatural terroir of the house vintage. But my exultation was cut short as the attending gentry turned upon themselves in an orgy of an indescribable frenzy. A single drop of that forbidden tannin gifted me with a dizzying glimpse of a hibernating horror beneath my feet, and in that moment, I understood the terrible truth of the world. I stood reborn, molted by newfound knowledge, my head throbbing to the growing whine of winged vermin come to drink the tainted blood… of The Darkest Dungeon."
   }
 ]`)
-    return quotes
+	return quotes
 }
