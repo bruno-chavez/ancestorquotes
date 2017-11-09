@@ -69,22 +69,39 @@ GLOBAL OPTIONS:
    --version, -v  print the version
 ```
 
-persistent: it allows `ancestorquotes` to run every x amount of minutes where x is a number between 0 and 59
+persistent: allows `ancestorquotes` to run every "x" amount of time
 
 ```
-$ ancestorquotes persistent 5
+$ ancestorquotes persistent
+NAME:
+   ancestorquotes persistent - schedules the app to run every x amount of time
 
-ancestorquotes will run every 5 minutes!
+USAGE:
+   ancestorquotes persistent command [command options] [arguments...]
+
+COMMANDS:
+     minutes, m  minutes between every quote, value accepted if between 1 and 59
+     seconds, s  seconds between every quote, value accepted if between 1 and 59
+
+OPTIONS:
+   --help, -h  show help
+
+
 ```
 
 ### Sub command
 
-stop: allows `ancestorquotes` to stop its curring cycle.
+minutes: allows `persistant` run evey "x" minutes, where "x" is a number between 1 and 59
 
 ```
-$ ancestorquotes persistent stop
+$ ancestorquotes persistent minutes 1
+```
 
-ancestorquotes stopped!
+
+seconds: allows `persistant` run evey "x" seconds, where "x" is a number between 1 and 59
+
+```
+$ ancestorquotes persistent seconds 30
 ```
 
 
