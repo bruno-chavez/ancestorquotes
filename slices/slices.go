@@ -1,12 +1,11 @@
-//Package slices has functions that return slices populated with the number of seconds in a minute
-//or number of minutes in a day for example.
-//The syntax for the name of the functions is, first letter "number of x", second letter "in y"
+//Has functions that return slices populated with the number of seconds in a minute or number of minutes in a day for example.
 package slices
 
 import (
 	"strconv"
 )
 
+//Populates with the number of seconds in a minute and the number of minutes in an hour.
 func SecondsMinutes() []string {
 	slice := make([]string, 60)
 

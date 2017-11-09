@@ -1,4 +1,4 @@
-//Package random takes care of proccesing the whole json top level array.
+//Takes care of processing the whole json top level array.
 package random
 
 import (
@@ -15,6 +15,7 @@ type Quote struct {
 
 //Returns a single, randomly picked quote
 func RandomQuote() {
+
 	rand.Seed(time.Now().UTC().UnixNano())
 
 	quoteSlice := make([]Quote, 0)
