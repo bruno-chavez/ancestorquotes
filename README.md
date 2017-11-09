@@ -1,5 +1,4 @@
-[![GoDoc](https://img.shields.io/badge/godoc-documentation-blue.svg)](https://godoc.org/github.com/bruno-chavez/ancestorquotes)
-
+[![GoDoc](https://godoc.org/github.com/bruno-chavez/ancestorquotes?status.svg)](https://godoc.org/github.com/bruno-chavez/ancestorquotes)
 
 `ancestorquotes` is a fun, little command-line app written in Go,
 which prints a random quote used by the Ancestor or also known as
