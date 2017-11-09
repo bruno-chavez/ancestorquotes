@@ -69,7 +69,7 @@ GLOBAL OPTIONS:
    --version, -v  print the version
 ```
 
-persistent: allows `ancestorquotes` to run every "x" amount of time
+persistent: allows `ancestorquotes` to run every "x" amount of time.
 
 ```
 $ ancestorquotes persistent
@@ -85,20 +85,18 @@ COMMANDS:
 
 OPTIONS:
    --help, -h  show help
-
-
 ```
 
 ### Sub command
 
-minutes: allows `persistant` run evey "x" minutes, where "x" is a number between 1 and 59
+minutes: allows `persistant` run evey "x" minutes, where "x" is a number between 1 and 59.
 
 ```
 $ ancestorquotes persistent minutes 1
 ```
 
 
-seconds: allows `persistant` run evey "x" seconds, where "x" is a number between 1 and 59
+seconds: allows `persistant` run evey "x" seconds, where "x" is a number between 1 and 59.
 
 ```
 $ ancestorquotes persistent seconds 30
