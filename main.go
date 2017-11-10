@@ -2,7 +2,7 @@ package main
 
 import (
 	"github.com/bruno-chavez/ancestorquotes/converter"
-	"github.com/bruno-chavez/ancestorquotes/random"
+	"github.com/bruno-chavez/ancestorquotes/structs"
 	"github.com/bruno-chavez/ancestorquotes/slices"
 	"github.com/robfig/cron"
 	"github.com/urfave/cli"
@@ -36,7 +36,7 @@ func main() {
 							Hidden:  true,
 							Action: func(c *cli.Context) error {
 								schedule := cron.New()
-								schedule.AddFunc(converter.TimeConverter(os.Args[3], "minutes"), random.RandomQuote)
+								schedule.AddFunc(converter.TimeConverter(os.Args[3], "minutes"), structs.RandomQuote)
 								schedule.Run()
 								return nil
 							},
@@ -56,7 +56,7 @@ func main() {
 							Hidden:  true,
 							Action: func(c *cli.Context) error {
 								schedule := cron.New()
-								schedule.AddFunc(converter.TimeConverter(os.Args[3], "seconds"), random.RandomQuote)
+								schedule.AddFunc(converter.TimeConverter(os.Args[3], "seconds"), structs.RandomQuote)
 								schedule.Run()
 								return nil
 							},
@@ -68,7 +68,7 @@ func main() {
 	}
 
 	app.Action = func(c *cli.Context) error {
-		random.RandomQuote()
+		structs.RandomQuote()
 		return nil
 	}
 

@@ -1,5 +1,5 @@
 //Takes care of processing the whole json top level array.
-package random
+package structs
 
 import (
 	"encoding/json"
@@ -9,6 +9,7 @@ import (
 	"time"
 )
 
+//Type used to contain quotes
 type Quote struct {
 	Quote string `json:"quote"`
 }
