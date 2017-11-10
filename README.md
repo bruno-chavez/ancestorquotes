@@ -15,7 +15,7 @@ the Narrator from the Darkest Dungeon videogame.
 Requires Go to be installed on your machine. You can install Go from
 https://golang.org/doc/install
 
-Once installed, and with a correctly configured GOPATH, type:
+Once installed, and with a correctly configured GOPATH, on a terminal type:
 
 ```
 $ go get -u github.com/bruno-chavez/ancestorquotes
@@ -28,7 +28,7 @@ Then go to:
 GO_DIR/src/github.com/bruno-chavez/ancetorquotes
 ```
 
-On a terminal type:
+And last, on a terminal type:
 
 ```
 $ go install
