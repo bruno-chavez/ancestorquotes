@@ -1,12 +1,13 @@
 package main
 
 import (
-	"github.com/bruno-chavez/ancestorquotes/converter"
-	"github.com/bruno-chavez/ancestorquotes/structs"
+	"bufio"
+	_ "github.com/bruno-chavez/ancestorquotes/converter"
 	"github.com/bruno-chavez/ancestorquotes/slices"
-	"github.com/robfig/cron"
+	"github.com/bruno-chavez/ancestorquotes/structs"
 	"github.com/urfave/cli"
 	"os"
+	"time"
 )
 
 func main() {
@@ -35,9 +36,19 @@ func main() {
 							Aliases: slices.SecondsMinutes(),
 							Hidden:  true,
 							Action: func(c *cli.Context) error {
-								schedule := cron.New()
-								schedule.AddFunc(converter.TimeConverter(os.Args[3], "minutes"), structs.RandomQuote)
-								schedule.Run()
+								go func() {
+									c := time.Tick(1 * time.Second)
+									for range c {
+										structs.RandomQuote()
+									}
+								}()
+
+								scanner := bufio.NewScanner(os.Stdin)
+								for scanner.Scan() {
+									if scanner.Text() == "stop" {
+										return nil
+									}
+								}
 								return nil
 							},
 						},
@@ -55,9 +66,19 @@ func main() {
 							Aliases: slices.SecondsMinutes(),
 							Hidden:  true,
 							Action: func(c *cli.Context) error {
-								schedule := cron.New()
-								schedule.AddFunc(converter.TimeConverter(os.Args[3], "seconds"), structs.RandomQuote)
-								schedule.Run()
+								go func() {
+									c := time.Tick(1 * time.Second)
+									for range c {
+										structs.RandomQuote()
+									}
+								}()
+
+								scanner := bufio.NewScanner(os.Stdin)
+								for scanner.Scan() {
+									if scanner.Text() == "stop" {
+										return nil
+									}
+								}
 								return nil
 							},
 						},
@@ -71,6 +92,6 @@ func main() {
 		structs.RandomQuote()
 		return nil
 	}
-
 	app.Run(os.Args)
+	return
 }
