@@ -104,6 +104,16 @@ seconds: allows `persistant` run evey "x" seconds, where "x" is a number between
 $ ancestorquotes persistent seconds 30
 ```
 
+You can type `stop` at any time during execution to stop the program.
+
+```
+$ ancestorquotes persistent second 1
+Word is travelling. Ambition is stirring in distant cities. We can use this.
+Perched at the very precipice of oblivion...
+An increasing stockpile of curious trinkets, gathered from forbidden places.
+stop
+$
+```
 
 ## Notes
 
