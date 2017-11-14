@@ -2,12 +2,12 @@ package main
 
 import (
 	"bufio"
-	_ "github.com/bruno-chavez/ancestorquotes/converter"
 	"github.com/bruno-chavez/ancestorquotes/slices"
 	"github.com/bruno-chavez/ancestorquotes/structs"
 	"github.com/urfave/cli"
 	"os"
 	"time"
+	"strconv"
 )
 
 func main() {
@@ -36,9 +36,11 @@ func main() {
 							Aliases: slices.SecondsMinutes(),
 							Hidden:  true,
 							Action: func(c *cli.Context) error {
+
 								go func() {
-									c := time.Tick(1 * time.Second)
-									for range c {
+									timer, _ := strconv.Atoi(os.Args[3])
+									ticking := time.Tick(time.Duration(timer) * time.Minute)
+									for range ticking {
 										structs.RandomQuote()
 									}
 								}()
@@ -67,8 +69,9 @@ func main() {
 							Hidden:  true,
 							Action: func(c *cli.Context) error {
 								go func() {
-									c := time.Tick(1 * time.Second)
-									for range c {
+									timer, _ := strconv.Atoi(os.Args[3])
+									ticking := time.Tick(time.Duration(timer) * time.Second)
+									for range ticking {
 										structs.RandomQuote()
 									}
 								}()
