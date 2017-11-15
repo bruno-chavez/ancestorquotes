@@ -1,4 +1,4 @@
-//Takes care of processing the whole json top level array.
+//Package structs takes care of processing the whole json top level array.
 package structs
 
 import (
@@ -9,12 +9,12 @@ import (
 	"time"
 )
 
-//Type used to contain quotes
+//Quote is used to contain quotes
 type Quote struct {
 	Quote string `json:"quote"`
 }
 
-//Returns a single, randomly picked quote
+//RandomQuote returns a single, randomly picked quote
 func RandomQuote() {
 
 	rand.Seed(time.Now().UTC().UnixNano())

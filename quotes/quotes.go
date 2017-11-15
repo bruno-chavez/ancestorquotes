@@ -1,6 +1,7 @@
-//Contains all the quotes in a single top level json array.
+//Package quotes contains all the quotes in a single top level json array.
 package quotes
 
+//Q contains all the quotes
 func Q() []byte {
 	quotes := []byte(`[
   {

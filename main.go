@@ -6,8 +6,8 @@ import (
 	"github.com/bruno-chavez/ancestorquotes/structs"
 	"github.com/urfave/cli"
 	"os"
-	"time"
 	"strconv"
+	"time"
 )
 
 func main() {
