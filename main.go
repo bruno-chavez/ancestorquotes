@@ -2,12 +2,13 @@ package main
 
 import (
 	"bufio"
-	"github.com/bruno-chavez/ancestorquotes/slices"
-	"github.com/bruno-chavez/ancestorquotes/structs"
-	"github.com/urfave/cli"
 	"os"
 	"strconv"
 	"time"
+
+	"github.com/bruno-chavez/ancestorquotes/slices"
+	"github.com/bruno-chavez/ancestorquotes/structs"
+	"github.com/urfave/cli"
 )
 
 func main() {
@@ -87,6 +88,15 @@ func main() {
 						},
 					},
 				},
+			},
+		},
+		{
+			Name:    "all",
+			Usage:   "Prints all quotes from the darkest of dungeons!",
+			Aliases: []string{"a"},
+			Action: func(c *cli.Context) error {
+				structs.AllQuotes()
+				return nil
 			},
 		},
 	}

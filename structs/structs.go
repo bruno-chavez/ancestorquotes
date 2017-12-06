@@ -4,9 +4,10 @@ package structs
 import (
 	"encoding/json"
 	"fmt"
-	"github.com/bruno-chavez/ancestorquotes/quotes"
 	"math/rand"
 	"time"
+
+	"github.com/bruno-chavez/ancestorquotes/quotes"
 )
 
 //Quote is used to contain quotes
@@ -28,5 +29,20 @@ func RandomQuote() {
 	} else {
 		selectedQuote := quoteSlice[rand.Intn(len(quoteSlice))]
 		fmt.Printf("%v", selectedQuote.Quote+"\n")
+	}
+}
+
+//AllQuotes prints all quotes to standard output
+func AllQuotes() {
+
+	quoteSlice := make([]Quote, 0)
+	err := json.Unmarshal(quotes.Q(), &quoteSlice)
+	if err != nil {
+		panic(err)
+
+	} else {
+		for _, quote := range quoteSlice {
+			fmt.Println(quote.Quote + "\n")
+		}
 	}
 }
