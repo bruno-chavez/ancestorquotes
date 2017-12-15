@@ -2,21 +2,37 @@ package main
 
 import (
 	"bufio"
-	"github.com/bruno-chavez/ancestorquotes/slices"
-	"github.com/bruno-chavez/ancestorquotes/structs"
-	"github.com/urfave/cli"
 	"os"
 	"strconv"
 	"time"
+
+	"github.com/bruno-chavez/ancestorquotes/slices"
+	"github.com/bruno-chavez/ancestorquotes/structs"
+	"github.com/urfave/cli"
 )
 
 func main() {
+	var search cli.StringSlice
+	filters := func() []structs.Filter {
+		var result []structs.Filter
+		for _, s := range search {
+			result = append(result, structs.Contains(s))
+		}
+		return result
+	}
 
 	app := cli.NewApp()
 	app.Name = "ancestorquotes"
 	app.Author = "bruno-chavez"
 	app.Usage = "brings quotes from the darkest of dungeons!"
 	app.Version = "0.2"
+	app.Flags = []cli.Flag{
+		cli.StringSliceFlag{
+			Name:  "search",
+			Value: &search,
+			Usage: "A search term that the quote must contain.",
+		},
+	}
 	app.Commands = []cli.Command{
 		{
 			Name:    "persistent",
@@ -41,7 +57,7 @@ func main() {
 									timer, _ := strconv.Atoi(os.Args[3])
 									ticking := time.Tick(time.Duration(timer) * time.Minute)
 									for range ticking {
-										structs.RandomQuote()
+										structs.Quotes.Filter(filters()...).Random().Print()
 									}
 								}()
 
@@ -72,7 +88,7 @@ func main() {
 									timer, _ := strconv.Atoi(os.Args[3])
 									ticking := time.Tick(time.Duration(timer) * time.Second)
 									for range ticking {
-										structs.RandomQuote()
+										structs.Quotes.Filter(filters()...).Random().Print()
 									}
 								}()
 
@@ -92,7 +108,7 @@ func main() {
 	}
 
 	app.Action = func(c *cli.Context) error {
-		structs.RandomQuote()
+		structs.Quotes.Filter(filters()...).Random().Print()
 		return nil
 	}
 	app.Run(os.Args)
