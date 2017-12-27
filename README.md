@@ -57,13 +57,14 @@ USAGE:
    ancestorquotes [global options] command [command options] [arguments...]
 
 VERSION:
-   0.2
+   0.3
 
 AUTHOR:
    bruno-chavez
 
 COMMANDS:
      persistent, p  makes the app execute itself on a regular basis
+     all, a         Prints all quotes from the darkest of dungeons!
      help, h        Shows a list of commands or help for one command
 
 GLOBAL OPTIONS:
@@ -89,7 +90,20 @@ OPTIONS:
    --help, -h  show help
 ```
 
+all: Displays all the quotes
+
+```
+$ ancestorquotes persistent a -h
+NAME:
+   ancestorquotes all - Prints all quotes from the darkest of dungeons!
+
+USAGE:
+   ancestorquotes all [arguments...]
+```
+
 ### Sub command
+
+For `persistant` to work, you must use one of the following subcommands:
 
 minutes: allows `persistant` run evey "x" minutes, where "x" is a number between 1 and 59.
 
