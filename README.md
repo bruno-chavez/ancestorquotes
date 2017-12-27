@@ -68,6 +68,7 @@ COMMANDS:
      help, h        Shows a list of commands or help for one command
 
 GLOBAL OPTIONS:
+   --search value  A search term that the quote must contain.
    --help, -h     show help
    --version, -v  print the version
 ```
