@@ -57,7 +57,7 @@ USAGE:
    ancestorquotes [global options] command [command options] [arguments...]
 
 VERSION:
-   0.3
+   0.4
 
 AUTHOR:
    bruno-chavez
@@ -68,7 +68,7 @@ COMMANDS:
      help, h        Shows a list of commands or help for one command
 
 GLOBAL OPTIONS:
-   --search value  A search term that the quote must contain.
+   --search value, -s value  search term that the quote must contain.
    --help, -h     show help
    --version, -v  print the version
 ```

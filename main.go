@@ -30,7 +30,7 @@ func main() {
 		cli.StringSliceFlag{
 			Name:  "search, s",
 			Value: &search,
-			Usage: "A search term that the quote must contain",
+			Usage: "search term that the quote must contain",
 		},
 	}
 	app.Commands = []cli.Command{
