@@ -25,12 +25,12 @@ func main() {
 	app.Name = "ancestorquotes"
 	app.Author = "bruno-chavez"
 	app.Usage = "brings quotes from the darkest of dungeons!"
-	app.Version = "0.2"
+	app.Version = "0.4"
 	app.Flags = []cli.Flag{
 		cli.StringSliceFlag{
-			Name:  "search",
+			Name:  "search, s",
 			Value: &search,
-			Usage: "A search term that the quote must contain.",
+			Usage: "A search term that the quote must contain",
 		},
 	}
 	app.Commands = []cli.Command{
