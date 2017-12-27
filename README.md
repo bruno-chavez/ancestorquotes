@@ -57,7 +57,7 @@ USAGE:
    ancestorquotes [global options] command [command options] [arguments...]
 
 VERSION:
-   0.3
+   0.4
 
 AUTHOR:
    bruno-chavez
