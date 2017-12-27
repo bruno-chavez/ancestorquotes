@@ -20,11 +20,11 @@ func init() {
 	if err != nil {
 		panic(err)
 	}
-	Quotes = picker(quoteSlice)
+	Quotes = Picker(quoteSlice)
 }
 
 // Quotes holds all quotes.
-var Quotes picker
+var Quotes Picker
 
 //Quote is used to contain quotes
 type Quote struct {
@@ -46,10 +46,10 @@ func Contains(s string) Filter {
 	}
 }
 
-type picker []Quote
+type Picker []Quote
 
-func (p picker) Filter(filters ...Filter) picker {
-	var result picker
+func (p Picker) Filter(filters ...Filter) Picker {
+	var result Picker
 
 outer:
 	for _, q := range p {
@@ -63,7 +63,7 @@ outer:
 	return result
 }
 
-func (p picker) Random() Quote {
+func (p Picker) Random() Quote {
 	if len(p) < 1 {
 		return Quote{}
 	}
