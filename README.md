@@ -4,9 +4,7 @@
 which prints a random quote used by the Ancestor or also known as
 the Narrator from the Darkest Dungeon videogame.
 
-
 ## Installation
-
 
 ### Linux
 
@@ -21,7 +19,6 @@ Once installed, and with a correctly configured GOPATH, on a terminal type:
 $ go get -u github.com/bruno-chavez/ancestorquotes
 ```
 
-
 Then go to:
 
 ```
@@ -34,10 +31,10 @@ And last, on a terminal type:
 $ go install
 ```
 
-
 ## Usage
 
 Simply type `ancestorquotes`
+
 ```
 $ ancestorquotes
 
@@ -65,6 +62,7 @@ AUTHOR:
 COMMANDS:
      persistent, p  makes the app execute itself on a regular basis
      all, a         Prints all quotes from the darkest of dungeons!
+     chat, c        Prints a chat between the ancestor and himself.
      help, h        Shows a list of commands or help for one command
 
 GLOBAL OPTIONS:
@@ -112,7 +110,6 @@ minutes: allows `persistant` run evey "x" minutes, where "x" is a number between
 $ ancestorquotes persistent minutes 1
 ```
 
-
 seconds: allows `persistant` run evey "x" seconds, where "x" is a number between 1 and 59.
 
 ```
@@ -137,6 +134,5 @@ so do that!
 
 Only tested on Linux.
 
-
-Heavely inspired by [motivate](https://github.com/mubaris/motivate) and 
+Heavely inspired by [motivate](https://github.com/mubaris/motivate) and
 [this reddit bot](https://www.reddit.com/r/darkestdungeon/comments/7877vx/darkest_dungeon_ancestor_quote_bot/)
