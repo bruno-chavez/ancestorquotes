@@ -140,3 +140,13 @@ Only tested on Linux.
 
 Heavely inspired by [motivate](https://github.com/mubaris/motivate) and 
 [this reddit bot](https://www.reddit.com/r/darkestdungeon/comments/7877vx/darkest_dungeon_ancestor_quote_bot/)
+
+## Contribute
+
+Found an bug or an error? Post it in the [issue tracker](https://github.com/bruno-chavez/ancestorquotes/issues).
+
+Want to add an awesome new feature? [Fork](https://github.com/bruno-chavez/ancestorquotes/fork) this repository and add your feature, then send a pull request.
+
+## License
+The MIT License (MIT)
+Copyright (c) 2017 Bruno Chavez
