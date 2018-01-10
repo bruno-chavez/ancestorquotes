@@ -115,7 +115,7 @@ func main() {
 		},
 		{
 			Name:	"chat",
-			Usage:	"Prints a chat between the ancestor and himself.",
+			Usage:	"The Ancestor talks with himself in a maddenly fashion.",
 			Aliases: []string{"c"},
 			Action: func(c *cli.Context) error {
 				structs.Chat()
