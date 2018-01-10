@@ -22,31 +22,33 @@ func init() {
 	Quotes = Picker(quoteSlice)
 }
 
-// Quotes holds all quotes.
+//Quotes holds all quotes.
 var Quotes Picker
 
-//Quote is used to contain quotes
+//Quote is used to contain quotes.
 type Quote struct {
 	Quote string `json:"quote"`
 }
 
-// Print outputs the quote to stdout.
+//Print outputs the quote to stdout.
 func (q Quote) Print() {
 	fmt.Printf("%v", q.Quote+"\n")
 }
 
-// A Filter returns true if the quote meets a condition.
+//A Filter returns true if the quote meets a condition.
 type Filter func(Quote) bool
 
-// Contains creates a filter that tests if the quote contains a substring.
+//Contains creates a filter that tests if the quote contains a substring.
 func Contains(s string) Filter {
 	return func(q Quote) bool {
 		return strings.Contains(q.Quote, s)
 	}
 }
 
+//Picker is a quote picked by the search command
 type Picker []Quote
 
+//Filter picks a quote selected by the filters parameter.
 func (p Picker) Filter(filters ...Filter) Picker {
 	var result Picker
 
@@ -62,6 +64,7 @@ outer:
 	return result
 }
 
+//Random picks a random quote.
 func (p Picker) Random() Quote {
 	if len(p) < 1 {
 		return Quote{}
@@ -69,7 +72,7 @@ func (p Picker) Random() Quote {
 	return p[rand.Intn(len(p))]
 }
 
-//AllQuotes prints all quotes to standard output
+//AllQuotes prints all quotes to standard output.
 func AllQuotes() {
 
 	quoteSlice := make([]Quote, 0)
@@ -84,12 +87,11 @@ func AllQuotes() {
 	}
 }
 
-//Chat randomly selects a quote ending with a "?"
-	//and a quote ending with a "."
-	//then prints them
+//Chat randomly selects a quote ending with a "?" and another one ending with a "." and prints them.
 func Chat() {
 	quoteSlice := make([]Quote, 0)
 	err := json.Unmarshal(quotes.Q(), &quoteSlice)
+
 	if err != nil {
 		panic(err)
 	} else {

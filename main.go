@@ -24,23 +24,23 @@ func main() {
 	app.Name = "ancestorquotes"
 	app.Author = "bruno-chavez"
 	app.Usage = "brings quotes from the darkest of dungeons!"
-	app.Version = "0.4"
+	app.Version = "0.5"
 	app.Flags = []cli.Flag{
 		cli.StringSliceFlag{
-			Name:  "search, s",
-			Value: &search,
-			Usage: "search term that the quote must contain",
+			Name:	"search, s",
+			Value:	&search,
+			Usage:	"search term that the quote must contain",
 		},
 	}
 	app.Commands = []cli.Command{
 		{
-			Name:    "persistent",
-			Usage:   "schedules the app to run every x amount of time",
+			Name:	"persistent",
+			Usage:	"schedules the app to run every x amount of time",
 			Aliases: []string{"p"},
 			Subcommands: []cli.Command{
 				{
-					Name:    "minutes",
-					Usage:   "minutes between every quote, value accepted if between 1 and 59",
+					Name:	"minutes",
+					Usage:	"minutes between every quote, value accepted if between 1 and 59",
 					Aliases: []string{"m"},
 					Action: func(c *cli.Context) error {
 
@@ -72,8 +72,8 @@ func main() {
 					},
 				},
 				{
-					Name:    "seconds",
-					Usage:   "seconds between every quote, value accepted if between 1 and 59",
+					Name:	"seconds",
+					Usage:	"seconds between every quote, value accepted if between 1 and 59",
 					Aliases: []string{"s"},
 					Action: func(c *cli.Context) error {
 						return nil
@@ -105,8 +105,8 @@ func main() {
 			},
 		},
 		{
-			Name:    "all",
-			Usage:   "Prints all quotes from the darkest of dungeons!",
+			Name:	"all",
+			Usage:	"Prints all quotes from the darkest of dungeons!",
 			Aliases: []string{"a"},
 			Action: func(c *cli.Context) error {
 				structs.AllQuotes()
@@ -114,11 +114,11 @@ func main() {
 			},
 		},
 		{
-			Name:		"chat",
-			Usage:  "Prints a chat between the ancestor and himself.",
+			Name:	"chat",
+			Usage:	"Prints a chat between the ancestor and himself.",
 			Aliases: []string{"c"},
 			Action: func(c *cli.Context) error {
-				structs.Conversation()
+				structs.Chat()
 				return nil
 			},
 		},
