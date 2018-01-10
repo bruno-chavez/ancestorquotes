@@ -4,10 +4,9 @@ package structs
 import (
 	"encoding/json"
 	"fmt"
-	"math/rand"
 	"strings"
 	"time"
-
+	"math/rand"
 	"github.com/bruno-chavez/ancestorquotes/quotes"
 )
 
@@ -82,5 +81,30 @@ func AllQuotes() {
 		for _, quote := range quoteSlice {
 			fmt.Println(quote.Quote + "\n")
 		}
+	}
+}
+
+//Chat randomly selects a quote ending with a "?"
+	//and a quote ending with a "."
+	//then prints them
+func Chat() {
+	quoteSlice := make([]Quote, 0)
+	err := json.Unmarshal(quotes.Q(), &quoteSlice)
+	if err != nil {
+		panic(err)
+	} else {
+		//split quotes into questions and statements
+		var questions []Quote
+		var statements []Quote
+		for _, quote := range quoteSlice {
+			if strings.HasSuffix(quote.Quote, "?") {
+				questions = append(questions, quote)
+			}else if strings.HasSuffix(quote.Quote, ".") {
+				statements = append(statements, quote)
+			}
+		}
+		//select one for each at random
+		fmt.Println(questions[rand.Intn(len(questions))].Quote)
+		fmt.Println(statements[rand.Intn(len(statements))].Quote)
 	}
 }

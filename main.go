@@ -5,7 +5,6 @@ import (
 	"os"
 	"strconv"
 	"time"
-
 	"github.com/bruno-chavez/ancestorquotes/slices"
 	"github.com/bruno-chavez/ancestorquotes/structs"
 	"github.com/urfave/cli"
@@ -111,6 +110,15 @@ func main() {
 			Aliases: []string{"a"},
 			Action: func(c *cli.Context) error {
 				structs.AllQuotes()
+				return nil
+			},
+		},
+		{
+			Name:		"chat",
+			Usage:  "Prints a chat between the ancestor and himself.",
+			Aliases: []string{"c"},
+			Action: func(c *cli.Context) error {
+				structs.Conversation()
 				return nil
 			},
 		},
