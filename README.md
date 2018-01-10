@@ -31,6 +31,23 @@ And last, on a terminal type:
 $ go install
 ```
 
+## Updating
+
+To install an updated version of `ancestorquotes` simply type:
+
+```
+$ go get -u github.com/bruno-chavez/ancestorquotes
+```
+
+You can always check check your current `ancestorquotes` version by typing:
+
+```
+$ ancestorquotes help
+
+VERSION:
+   0.5
+```
+
 ## Usage
 
 Simply type `ancestorquotes`
