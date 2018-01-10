@@ -16,13 +16,13 @@ https://golang.org/doc/install
 Once installed, and with a correctly configured GOPATH, on a terminal type:
 
 ```
-$ go get -u github.com/bruno-chavez/ancestorquotes
+$ go get github.com/bruno-chavez/ancestorquotes
 ```
 
 Then go to:
 
 ```
-GO_DIR/src/github.com/bruno-chavez/ancetorquotes
+$GOPATH/src/github.com/bruno-chavez/ancetorquotes
 ```
 
 And last, on a terminal type:
