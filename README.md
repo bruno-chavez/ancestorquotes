@@ -54,7 +54,7 @@ USAGE:
    ancestorquotes [global options] command [command options] [arguments...]
 
 VERSION:
-   0.4
+   0.5
 
 AUTHOR:
    bruno-chavez
@@ -62,11 +62,11 @@ AUTHOR:
 COMMANDS:
      persistent, p  makes the app execute itself on a regular basis
      all, a         Prints all quotes from the darkest of dungeons!
-     chat, c        Prints a chat between the ancestor and himself.
+     chat, c        The Ancestor talks with himself in a maddenly fashion
      help, h        Shows a list of commands or help for one command
 
 GLOBAL OPTIONS:
-   --search value, -s value  search term that the quote must contain.
+   --search value, -s value  search term that the quote must contain
    --help, -h     show help
    --version, -v  print the version
 ```
@@ -98,6 +98,16 @@ NAME:
 
 USAGE:
    ancestorquotes all [arguments...]
+```
+
+
+chat: prints a random quote that ends in a "?" followed by another one that finishes in a "."
+
+```
+$ ancestorquotes c
+How many rats will it take to gnaw through a tonne of putrid flesh?
+Ringing ears, blurred vision - the end approaches...
+
 ```
 
 ### Sub command
