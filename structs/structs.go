@@ -4,10 +4,10 @@ package structs
 import (
 	"encoding/json"
 	"fmt"
+	"github.com/bruno-chavez/ancestorquotes/quotes"
+	"math/rand"
 	"strings"
 	"time"
-	"math/rand"
-	"github.com/bruno-chavez/ancestorquotes/quotes"
 )
 
 func init() {
@@ -101,7 +101,7 @@ func Chat() {
 		for _, quote := range quoteSlice {
 			if strings.HasSuffix(quote.Quote, "?") {
 				questions = append(questions, quote)
-			}else if strings.HasSuffix(quote.Quote, ".") {
+			} else if strings.HasSuffix(quote.Quote, ".") {
 				statements = append(statements, quote)
 			}
 		}
