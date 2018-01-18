@@ -44,7 +44,6 @@ You can always check check your current version by typing:
 ```
 $ ancestorquotes --version
 ancestorquotes version 0.5
-
 ```
 
 ## Usage
