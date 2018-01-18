@@ -33,19 +33,17 @@ $ go install
 
 ## Updating
 
-To install an updated version of `ancestorquotes` simply type:
+To update `ancestorquotes` simply type:
 
 ```
 $ go get -u github.com/bruno-chavez/ancestorquotes
 ```
 
-You can always check check your current `ancestorquotes` version by typing:
+You can always check check your current version by typing:
 
 ```
-$ ancestorquotes help
-
-VERSION:
-   0.5
+$ ancestorquotes --version
+ancestorquotes version 0.5
 ```
 
 ## Usage
