@@ -108,7 +108,7 @@ OPTIONS:
 all: Displays all the quotes
 
 ```
-$ ancestorquotes persistent a -h
+$ ancestorquotes a -h
 NAME:
    ancestorquotes all - Prints all quotes from the darkest of dungeons!
 
