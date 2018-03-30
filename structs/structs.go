@@ -110,3 +110,30 @@ func Chat() {
 		fmt.Println(statements[rand.Intn(len(statements))].Quote)
 	}
 }
+
+//Talk to the Ancestor and the Ancestor replies back in a random manner
+func TalkBack() {
+	userName := ""
+	userReply := ""
+	quoteSlice := make([]Quote, 0)
+	err := json.Unmarshal(quotes.Q(), &quoteSlice)
+
+	if err != nil {
+		panic(err)
+	} else {
+		fmt.Println("Enter your name:")
+		fmt.Scanln(&userName)
+		fmt.Println("Hi " + userName)
+		for {
+			fmt.Println("What do you wanna say?")
+			fmt.Scanln(&userReply)
+			if userReply == "stop" {
+				fmt.Println("GoodBye " + userName)
+				fmt.Println("Bear in mind my last quote")
+				fmt.Println("Ancestor says: " + quoteSlice[rand.Intn(len(quoteSlice))].Quote)
+				break
+			}
+			fmt.Println("Ancestor says: " + quoteSlice[rand.Intn(len(quoteSlice))].Quote)
+		}
+	}
+}
