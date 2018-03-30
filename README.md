@@ -79,6 +79,7 @@ COMMANDS:
      persistent, p  makes the app execute itself on a regular basis
      all, a         Prints all quotes from the darkest of dungeons!
      chat, c        The Ancestor talks with himself in a maddenly fashion
+     talkback, t    The user talks to the Ancestor and the Ancestor replies back in a crazy manner
      help, h        Shows a list of commands or help for one command
 
 GLOBAL OPTIONS:
@@ -124,6 +125,31 @@ $ ancestorquotes c
 How many rats will it take to gnaw through a tonne of putrid flesh?
 Ringing ears, blurred vision - the end approaches...
 
+```
+
+talkback: The user talks to the Ancestor and the Ancestor replies back in a crazy manner <br>
+Enter your name first. Keep on chatting with the Ancestor! Enter `stop` to end the chat.
+
+```
+$ ancestorquotes t
+Enter your name:
+user
+Hi user
+What do you wanna say?
+What a wonderful day!
+Ancestor says: To those with the keen eye, gold gleams like a dagger's point.
+What do you wanna say?
+stop
+GoodBye user
+Bear in mind my last quote
+Ancestor says: Perched at the very precipice of oblivion...
+
+
+NAME:
+   ancestorquotes talkback - User talks to the Ancestor and the Ancestor replies back in a crazy manner
+
+USAGE:
+   ancestorquotes talkback
 ```
 
 ### Sub command
