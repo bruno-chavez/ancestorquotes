@@ -113,7 +113,7 @@ func Chat() {
 	}
 }
 
-//Talk to the Ancestor and the Ancestor replies back in a random manner
+//TalkBack talks to the Ancestor and the Ancestor replies back in a random manner
 func TalkBack() {
 	userName := ""
 	userReply := ""
@@ -126,12 +126,20 @@ func TalkBack() {
 	} else {
 		fmt.Println("Enter your name:")
 		fmt.Scanln(&userName)
+
+		if userName == "stop" {
+			fmt.Println("Good bye nameless fiend!")
+			fmt.Println("Bear in mind my last quote")
+			fmt.Println("Ancestor says: " + quoteSlice[rand.Intn(len(quoteSlice))].Quote)
+			return
+		}
+
 		fmt.Println("Hi " + userName)
 		for {
 			fmt.Println("What do you wanna say?")
 			userReply, _ = reader.ReadString('\n')
 			if userReply == "stop\n" {
-				fmt.Println("GoodBye " + userName)
+				fmt.Println("Good bye " + userName)
 				fmt.Println("Bear in mind my last quote")
 				fmt.Println("Ancestor says: " + quoteSlice[rand.Intn(len(quoteSlice))].Quote)
 				break

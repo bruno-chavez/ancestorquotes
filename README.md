@@ -44,7 +44,7 @@ You can always check check your current version by typing:
 
 ```
 $ ancestorquotes --version
-ancestorquotes version 0.5
+ancestorquotes version 0.6
 ```
 
 ## Usage
@@ -70,7 +70,7 @@ USAGE:
    ancestorquotes [global options] command [command options] [arguments...]
 
 VERSION:
-   0.5
+   0.6
 
 AUTHOR:
    bruno-chavez

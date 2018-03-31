@@ -24,7 +24,7 @@ func main() {
 	app.Name = "ancestorquotes"
 	app.Author = "bruno-chavez"
 	app.Usage = "brings quotes from the darkest of dungeons!"
-	app.Version = "0.5"
+	app.Version = "0.6"
 	app.Flags = []cli.Flag{
 		cli.StringSliceFlag{
 			Name:  "search, s",
