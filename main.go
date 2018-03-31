@@ -122,15 +122,15 @@ func main() {
 				return nil
 			},
 		},
-                {
-			Name: "talkback",
-                        Usage: "You can talk to the Ancestor and the Ancestor replies back in a crazy manner.",
-                        Aliases: []string{"t"},
-                        Action: func(c *cli.Context) error {
-                                structs.TalkBack()
-                                return nil
-                        },
-                },
+		{
+			Name:    "talkback",
+			Usage:   "You can talk to the Ancestor and the Ancestor replies back in a crazy manner.",
+			Aliases: []string{"t"},
+			Action: func(c *cli.Context) error {
+				structs.TalkBack()
+				return nil
+			},
+		},
 	}
 
 	app.Action = func(c *cli.Context) error {
