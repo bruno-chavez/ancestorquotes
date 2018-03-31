@@ -2,10 +2,12 @@
 package structs
 
 import (
+	"bufio"
 	"encoding/json"
 	"fmt"
 	"github.com/bruno-chavez/ancestorquotes/quotes"
 	"math/rand"
+	"os"
 	"strings"
 	"time"
 )
@@ -108,5 +110,33 @@ func Chat() {
 		//select one for each at random
 		fmt.Println(questions[rand.Intn(len(questions))].Quote)
 		fmt.Println(statements[rand.Intn(len(statements))].Quote)
+	}
+}
+
+//Talk to the Ancestor and the Ancestor replies back in a random manner
+func TalkBack() {
+	userName := ""
+	userReply := ""
+	reader := bufio.NewReader(os.Stdin)
+	quoteSlice := make([]Quote, 0)
+	err := json.Unmarshal(quotes.Q(), &quoteSlice)
+
+	if err != nil {
+		panic(err)
+	} else {
+		fmt.Println("Enter your name:")
+		fmt.Scanln(&userName)
+		fmt.Println("Hi " + userName)
+		for {
+			fmt.Println("What do you wanna say?")
+			userReply, _ = reader.ReadString('\n')
+			if userReply == "stop\n" {
+				fmt.Println("GoodBye " + userName)
+				fmt.Println("Bear in mind my last quote")
+				fmt.Println("Ancestor says: " + quoteSlice[rand.Intn(len(quoteSlice))].Quote)
+				break
+			}
+			fmt.Println("Ancestor says: " + quoteSlice[rand.Intn(len(quoteSlice))].Quote)
+		}
 	}
 }
