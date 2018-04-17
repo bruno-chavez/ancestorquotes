@@ -12,8 +12,7 @@ the Narrator from the Darkest Dungeon videogame.
 
 #### From source code:
 
-Requires Go to be installed on your machine. You can install Go from
-https://golang.org/doc/install
+Requires Go to be installed on your machine. You can install Go from [here](https://golang.org/doc/install).
 
 Once installed, and with a correctly configured GOPATH, on a terminal type:
 
@@ -190,7 +189,7 @@ Only tested on Linux.
 Heavely inspired by [motivate](https://github.com/mubaris/motivate) and
 [this reddit bot](https://www.reddit.com/r/darkestdungeon/comments/7877vx/darkest_dungeon_ancestor_quote_bot/).
 
-Sister project of [restedancesotr](https://github.com/bruno-chavez/restedancestor).
+Sister project of [restedancestor](https://github.com/bruno-chavez/restedancestor).
 
 
 
