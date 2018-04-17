@@ -1,6 +1,7 @@
 [![GoDoc](https://godoc.org/github.com/bruno-chavez/ancestorquotes?status.svg)](https://godoc.org/github.com/bruno-chavez/ancestorquotes)
 [![Go Report Card](https://goreportcard.com/badge/github.com/bruno-chavez/ancestorquotes)](https://goreportcard.com/report/github.com/bruno-chavez/ancestorquotes)
 
+
 `ancestorquotes` is a fun, little command-line app written in Go,
 which prints a random quote used by the Ancestor or also known as
 the Narrator from the Darkest Dungeon videogame.
@@ -40,7 +41,7 @@ To update `ancestorquotes` simply type:
 $ go get -u github.com/bruno-chavez/ancestorquotes
 ```
 
-You can always check check your current version by typing:
+You can always check your current version by typing:
 
 ```
 $ ancestorquotes --version
@@ -187,7 +188,11 @@ so do that!
 Only tested on Linux.
 
 Heavely inspired by [motivate](https://github.com/mubaris/motivate) and
-[this reddit bot](https://www.reddit.com/r/darkestdungeon/comments/7877vx/darkest_dungeon_ancestor_quote_bot/)
+[this reddit bot](https://www.reddit.com/r/darkestdungeon/comments/7877vx/darkest_dungeon_ancestor_quote_bot/).
+
+Sister project of [restedancesotr](https://github.com/bruno-chavez/restedancestor).
+
+
 
 ## Contribute
 
