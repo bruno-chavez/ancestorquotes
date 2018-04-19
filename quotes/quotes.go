@@ -1,4 +1,4 @@
-//Package quotes takes care of processing the JSON into a usable slice.
+//Package quotes takes care of processing the JSON file, define types and methods to be used in commands.
 package quotes
 
 import (
@@ -13,7 +13,7 @@ func init() {
 	rand.Seed(time.Now().UTC().UnixNano())
 }
 
-//QuoteType is the type that each quote will have once the JSON file is formatted.
+//QuoteType is the type that each quote will have once the JSON file is processed.
 type QuoteType struct {
 	Quote string `json:"quote"`
 }
@@ -29,18 +29,18 @@ func Parse() QuoteSlice {
 		panic(err)
 	}
 
-	readjson, err2 := ioutil.ReadAll(rawJSON)
+	readJSON, err2 := ioutil.ReadAll(rawJSON)
 	if err2 != nil {
 		panic(err2)
 	}
 
-	parsedjson := make(QuoteSlice, 0)
-	err3 := json.Unmarshal(readjson, &parsedjson)
+	parsedJSON := make(QuoteSlice, 0)
+	err3 := json.Unmarshal(readJSON, &parsedJSON)
 	if err3 != nil {
 		panic(err3)
 	}
 
-	return parsedjson
+	return parsedJSON
 }
 
 //RandomQuote method returns a random quote.

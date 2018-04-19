@@ -11,6 +11,7 @@ import (
 	"time"
 )
 
+//Contains all the quotes in a QuoteSlice type slice, used as a global variable to avoid having multiples of the same slice, reducing load times and memory usage.
 var quoteSLice  = quotes.Parse()
 
 func main() {
@@ -44,7 +45,7 @@ func main() {
 									timer, _ := strconv.Atoi(os.Args[3])
 									ticking := time.Tick(time.Duration(timer) * time.Minute)
 									for range ticking {
-										fmt.Println(quotes.Parse().RandomQuote())
+										fmt.Println(quoteSLice.RandomQuote())
 									}
 								}()
 
@@ -75,7 +76,7 @@ func main() {
 									timer, _ := strconv.Atoi(os.Args[3])
 									ticking := time.Tick(time.Duration(timer) * time.Second)
 									for range ticking {
-										fmt.Println(quotes.Parse().RandomQuote())
+										fmt.Println(quoteSLice.RandomQuote())
 									}
 								}()
 
@@ -122,7 +123,7 @@ func main() {
 	}
 
 	app.Action = func(c *cli.Context) error {
-		fmt.Println(quotes.Parse().RandomQuote())
+		fmt.Println(quoteSLice.RandomQuote())
 		return nil
 	}
 	app.Run(os.Args)
