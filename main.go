@@ -12,7 +12,7 @@ import (
 )
 
 //Contains all the quotes in a QuoteSlice type slice, used as a global variable to avoid having multiples of the same slice, reducing load times and memory usage.
-var quoteSLice  = quotes.Parse()
+var quoteSLice = quotes.Parse()
 
 func main() {
 
