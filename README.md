@@ -32,6 +32,12 @@ And last, on a terminal type:
 $ go install
 ```
 
+#### Executables:
+
+`ancestorquotes` can be downloaded for every OS [here](https://github.com/bruno-chavez/ancestorquotes/releases) simply click on the one that has your OS and architecture on its name
+
+Note that `ancestorquotes` has not been tested on Windows or MacOS if you run into any problems while trying to install or use it feel free to create an [issue](https://github.com/bruno-chavez/ancestorquotes/issues) and tell me about it.
+
 ## Updating
 
 To update `ancestorquotes` simply type:
@@ -182,8 +188,6 @@ $
 
 This is a pretty small and niche project, created mainly to have fun,
 so do that!
-
-Only tested on Linux.
 
 Heavely inspired by [motivate](https://github.com/mubaris/motivate) and
 [this reddit bot](https://www.reddit.com/r/darkestdungeon/comments/7877vx/darkest_dungeon_ancestor_quote_bot/).
