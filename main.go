@@ -123,7 +123,11 @@ func main() {
 	}
 
 	app.Action = func(c *cli.Context) error {
-		fmt.Println(quoteSLice.RandomQuote())
+		if len(c.Args()) > 0 {
+			fmt.Printf("%v is not a valid command.\nEnter ancestorquotes --help to see list of valid commands", c.Args()[0])
+		} else {
+			fmt.Println(quoteSLice.RandomQuote())
+		}
 		return nil
 	}
 	app.Run(os.Args)
