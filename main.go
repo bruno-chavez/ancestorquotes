@@ -20,7 +20,7 @@ func main() {
 	app.Name = "ancestorquotes"
 	app.Author = "bruno-chavez"
 	app.Usage = "brings quotes from the darkest of dungeons!"
-	app.Version = "1.0"
+	app.Version = "1.1"
 	app.Commands = []cli.Command{
 		{
 			Name:    "persistent",
@@ -124,7 +124,7 @@ func main() {
 
 	app.Action = func(c *cli.Context) error {
 		if len(c.Args()) > 0 {
-			fmt.Printf("%v is not a valid command.\nEnter ancestorquotes --help to see list of valid commands", c.Args()[0])
+			fmt.Printf("%v is not a valid command.\nEnter ancestorquotes --help to see the list of valid commands.\n", c.Args()[0])
 		} else {
 			fmt.Println(quoteSLice.RandomQuote())
 		}
