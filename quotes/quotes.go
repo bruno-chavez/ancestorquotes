@@ -6,6 +6,7 @@ import (
 	"io/ioutil"
 	"math/rand"
 	"os"
+	"strings"
 	"time"
 )
 
@@ -24,7 +25,21 @@ type QuoteSlice []QuoteType
 //Parse fetches from quotes.json and puts it on a QuoteSlice type slice.
 func Parse() QuoteSlice {
 
-	rawJSON, err := os.Open("quotes/quotes.json")
+	// Extremely tedious way to always find the json file, its pretty horrible to look at, but it works, somebody please do it better than me.
+	currentDir, _ := os.Getwd()
+	totalDoubleDots := len(strings.Split(currentDir, "/"))
+	path := os.Getenv("GOPATH") + "/src/github.com/bruno-chavez/ancestorquotes/quotes/quotes.json"
+	goingBack := ""
+	for i := 1; i <= totalDoubleDots; i++ {
+		if i == totalDoubleDots {
+			goingBack = goingBack + ".."
+		} else {
+			goingBack = "../" + goingBack
+		}
+	}
+	path = goingBack + path
+
+	rawJSON, err := os.Open(path)
 	if err != nil {
 		panic(err)
 	}
