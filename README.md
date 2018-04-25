@@ -14,6 +14,8 @@ the Narrator from the Darkest Dungeon videogame.
 
 Requires Go to be installed on your machine. You can install Go from [here](https://golang.org/doc/install).
 
+Also requires [cli](https://github.com/urfave/cli) a pretty awesome Go package used as the skeleton of `ancestorquotes`, all the credit for this app goes to this package!
+
 Once installed, and with a correctly configured GOPATH, on a terminal type:
 
 ```
@@ -32,7 +34,7 @@ And last, on a terminal type:
 $ go install
 ```
 
-#### Executables:
+### Executables:
 
 `ancestorquotes` can be downloaded for every OS [here](https://github.com/bruno-chavez/ancestorquotes/releases) simply click on the one that has your OS and architecture on its name
 
