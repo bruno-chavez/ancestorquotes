@@ -76,3 +76,68 @@ func TalkBack(quoteSlice quotes.QuoteSlice) {
 		fmt.Println("Ancestor says: " + quoteSlice.RandomQuote())
 	}
 }
+
+func Search(quoteSlice quotes.QuoteSlice, wordToSearch string) {
+	//flag is used to know if the search got any matches.
+	flag := true
+
+	quoteMatched := make([]string, 0)
+
+	//quote is a QuoteType type.
+	//wordXSlice is a slice with one word and white-spaces that appear after a filter is applied.
+	//wordXFilter is a string inside a wordXSlice.
+
+	for _, quote := range quoteSlice {
+		wordFirstSlice := strings.Split(quote.Quote, " ")
+
+		for _, wordFirstFilter := range wordFirstSlice {
+			wordSecondSlice := strings.Split(wordFirstFilter, ",")
+
+			for _, wordSecondFilter := range wordSecondSlice {
+				wordThirdSlice := strings.Split(wordSecondFilter, "!")
+
+				for _, wordThirdFilter := range wordThirdSlice {
+					filteredWord := strings.Split(wordThirdFilter, ".")
+
+					//After all the filters are applied the filtered word is compared with the word that is been searched.
+					//If a match is found, the quote that the filtered word belongs to, is printed.
+					if filteredWord[0] == wordToSearch {
+						quoteMatched = append(quoteMatched, quote.Quote)
+						flag = false
+					}
+				}
+			}
+		}
+	}
+	if flag {
+		fmt.Println(wordToSearch + " is not in any quote.")
+	} else {
+		//Defining a nested function helps to keep the code clean in the later parts of it.
+		inside := func(comparingQuote string, unfilteredSlice []string) bool {
+			for _, i := range unfilteredSlice {
+				if i == comparingQuote {
+					return true
+				}
+			}
+			return false
+		}
+
+		cleanSlice := make([]string, 0)
+
+		for _, match := range quoteMatched {
+			//To be able to use range on a slice, it must have at least one element.
+			if len(cleanSlice) == 0 {
+				cleanSlice = append(cleanSlice, match)
+			}
+			//Comparing the element of cleanSlice and unfilteredSlice
+			if inside(match, cleanSlice) {
+				continue
+			} else {
+				cleanSlice = append(cleanSlice, match)
+			}
+		}
+		for _, element := range cleanSlice {
+			fmt.Println(element + "\n")
+		}
+	}
+}

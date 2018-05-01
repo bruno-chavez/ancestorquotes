@@ -19,12 +19,12 @@ func main() {
 	app := cli.NewApp()
 	app.Name = "ancestorquotes"
 	app.Author = "bruno-chavez"
-	app.Usage = "brings quotes from the darkest of dungeons!"
-	app.Version = "1.1"
+	app.Usage = "Brings quotes from the darkest of dungeons!"
+	app.Version = "1.2"
 	app.Commands = []cli.Command{
 		{
 			Name:    "persistent",
-			Usage:   "schedules the app to run every x amount of time",
+			Usage:   "Makes the Ancestor say a quote every certain amount of time",
 			Aliases: []string{"p"},
 			Subcommands: []cli.Command{
 				{
@@ -95,7 +95,7 @@ func main() {
 		},
 		{
 			Name:    "all",
-			Usage:   "Prints all quotes from the darkest of dungeons!",
+			Usage:   "Shows all quotes the Ancestor has to offer",
 			Aliases: []string{"a"},
 			Action: func(c *cli.Context) error {
 				commands.AllQuotes(quoteSLice)
@@ -104,7 +104,7 @@ func main() {
 		},
 		{
 			Name:    "chat",
-			Usage:   "The Ancestor talks with himself in a maddening fashion.",
+			Usage:   "The Ancestor talks with himself in a maddening fashion",
 			Aliases: []string{"c"},
 			Action: func(c *cli.Context) error {
 				commands.Chat(quoteSLice)
@@ -113,10 +113,19 @@ func main() {
 		},
 		{
 			Name:    "talkback",
-			Usage:   "You can talk to the Ancestor and the Ancestor replies back in a crazy manner.",
+			Usage:   "You can talk to the Ancestor and the Ancestor replies back in a crazy manner",
 			Aliases: []string{"t"},
 			Action: func(c *cli.Context) error {
 				commands.TalkBack(quoteSLice)
+				return nil
+			},
+		},
+		{
+			Name:    "search",
+			Usage:   "Searches all quotes the Ancestor has ever said with the word wanted to be searched on it",
+			Aliases: []string{"s"},
+			Action: func(c *cli.Context) error {
+				commands.Search(quoteSLice, c.Args().First())
 				return nil
 			},
 		},

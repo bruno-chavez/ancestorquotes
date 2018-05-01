@@ -25,7 +25,8 @@ type QuoteSlice []QuoteType
 //Parse fetches from quotes.json and puts it on a QuoteSlice type slice.
 func Parse() QuoteSlice {
 
-	// Extremely tedious way to always find the json file, its pretty horrible to look at, but it works, somebody please do it better than me.
+	// Extremely tedious way to always find the json file.
+	// Its pretty horrible to look at, but it works, somebody please do it better than me.
 	currentDir, _ := os.Getwd()
 	totalDoubleDots := len(strings.Split(currentDir, "/"))
 	path := os.Getenv("GOPATH") + "/src/github.com/bruno-chavez/ancestorquotes/quotes/quotes.json"

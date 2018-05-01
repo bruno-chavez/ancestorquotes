@@ -52,12 +52,12 @@ You can always check your current version by typing:
 
 ```
 $ ancestorquotes --version
-ancestorquotes version 1.1
+ancestorquotes version 1.2
 ```
 
 ## Usage
 
-Simply type `ancestorquotes`
+Simply type `ancestorquotes` and a random quote from the Ancestor will be displayed:
 
 ```
 $ ancestorquotes
@@ -72,35 +72,36 @@ help: Shows general info about `ancestorquotes`.
 ```
 $ ancestorquotes help
 NAME:
-   ancestorquotes - brings quotes from the darkest of dungeons!
+   ancestorquotes - Brings quotes from the darkest of dungeons!
 
 USAGE:
-   ancestorquotes [global options] command [command options] [arguments...]
+   main [global options] command [command options] [arguments...]
 
 VERSION:
-   1.1
+   1.2
 
 AUTHOR:
    bruno-chavez
 
 COMMANDS:
-     persistent, p  makes the app execute itself on a regular basis
-     all, a         Prints all quotes from the darkest of dungeons!
-     chat, c        The Ancestor talks with himself in a maddenly fashion
-     talkback, t    The user talks to the Ancestor and the Ancestor replies back in a crazy manner
+     persistent, p  Makes the Ancestor say a quote every certain amount of time
+     all, a         Shows all quotes the Ancestor has to offer
+     chat, c        The Ancestor talks with himself in a maddening fashion
+     talkback, t    You can talk to the Ancestor and the Ancestor replies back in a crazy manner
+     search, s      Searches all quotes the Ancestor has ever said with the word wanted to be searched on it
      help, h        Shows a list of commands or help for one command
 
 GLOBAL OPTIONS:
-       --help, -h     show help
+   --help, -h     show help
    --version, -v  print the version
 ```
 
-persistent: allows `ancestorquotes` to run every "x" amount of time.
+persistent: Makes `ancestorquotes` to run every certain amount of time.
 
 ```
 $ ancestorquotes persistent
 NAME:
-   ancestorquotes persistent - schedules the app to run every x amount of time
+   ancestorquotes persistent - Makes the Ancestor say a quote every certain amount of time
 
 USAGE:
    ancestorquotes persistent command [command options] [arguments...]
@@ -113,22 +114,27 @@ OPTIONS:
    --help, -h  show help
 ```
 
-all: Displays all the quotes
+all: Shows all quotes the Ancestor has to offer:
 
 ```
-$ ancestorquotes a -h
-NAME:
-   ancestorquotes all - Prints all quotes from the darkest of dungeons!
+$ ancestorquotes all
+There is a place, beneath those ancient ruins, in the moor, that calls out to the boldest among them...
 
-USAGE:
-   ancestorquotes all [arguments...]
+'We are the Flame!', they cry, 'And Darkness fears us!'
+.
+.
+.
+Until the stars align in their inexorable formation and what sleeps is aroused once more. To hatch from this fragile shell of earth and rock, and bring our inescapable end.
+
+So, seek solace in a manner befitting your lineage, and take up your nugatory vigil, haunted forever by that sickening prose, echoing through the infinite blackness of space and time
+
 ```
 
 
 chat: prints a random quote that ends in a "?" followed by another one that finishes in a "."
 
 ```
-$ ancestorquotes c
+$ ancestorquotes chat
 How many rats will it take to gnaw through a tonne of putrid flesh?
 Ringing ears, blurred vision - the end approaches...
 
@@ -138,7 +144,7 @@ talkback: The user talks to the Ancestor and the Ancestor replies back in a craz
 Enter your name first. Keep on chatting with the Ancestor! Enter `stop` to end the chat.
 
 ```
-$ ancestorquotes t
+$ ancestorquotes talkback
 Enter your name:
 user
 Hi user
@@ -157,6 +163,18 @@ NAME:
 
 USAGE:
    ancestorquotes talkback
+```
+
+search: searches for all the quotes with the input word on it:
+```
+$ ancestorquotes search glory
+More arrive foolishly seeking fortune and glory in this domain... Of the damned.
+
+Where there is no peril in the task, there can be no glory in its accomplishment.
+
+The bigger the beast, the greater the glory.
+
+Another life wasted in the pursuit of glory and gold.
 ```
 
 ### Sub command
