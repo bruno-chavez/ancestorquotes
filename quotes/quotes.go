@@ -1,4 +1,4 @@
-//Package quotes takes care of processing the JSON file, define types and methods to be used in commands.
+//Package quotes takes care of processing the JSON file, define types and methods that are needed for commands.
 package quotes
 
 import (
@@ -10,6 +10,7 @@ import (
 	"time"
 )
 
+//init is needed to seed the rand package.
 func init() {
 	rand.Seed(time.Now().UTC().UnixNano())
 }
@@ -59,7 +60,7 @@ func Parse() QuoteSlice {
 	return parsedJSON
 }
 
-//RandomQuote method returns a random quote.
+//RandomQuote is a method of the QuoteSlice type that  returns a random quote.
 func (q QuoteSlice) RandomQuote() string {
 	return q[rand.Intn(len(q))].Quote
 }

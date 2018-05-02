@@ -1,17 +1,16 @@
 package main
 
 import (
-	"bufio"
 	"fmt"
 	"github.com/bruno-chavez/ancestorquotes/commands"
 	"github.com/bruno-chavez/ancestorquotes/quotes"
 	"github.com/urfave/cli"
 	"os"
 	"strconv"
-	"time"
 )
 
-//Contains all the quotes in a QuoteSlice type slice, used as a global variable to avoid having multiples of the same slice, reducing load times and memory usage.
+//Contains all the quotes in a QuoteSlice type slice.
+//Used as a global variable to avoid having multiples of the same slice, reducing load times and memory usage.
 var quoteSLice = quotes.Parse()
 
 func main() {
@@ -28,67 +27,25 @@ func main() {
 			Aliases: []string{"p"},
 			Subcommands: []cli.Command{
 				{
-					Name:    "minutes",
-					Usage:   "minutes between every quote, value accepted if between 1 and 59",
-					Aliases: []string{"m"},
+					Name:    "minute",
+					Usage:   "Intervals in minutes between every quote",
+					Aliases: []string{"m", "minutes"},
 					Action: func(c *cli.Context) error {
-
+						//os.Args[3] is the interval of time between quotes.
+						timer, _ := strconv.Atoi(os.Args[3])
+						commands.Persistent(quoteSLice, timer, "minutes")
 						return nil
-					},
-					Subcommands: []cli.Command{
-						{
-							Aliases: commands.SliceSecondsMinutes(),
-							Hidden:  true,
-							Action: func(c *cli.Context) error {
-
-								go func() {
-									timer, _ := strconv.Atoi(os.Args[3])
-									ticking := time.Tick(time.Duration(timer) * time.Minute)
-									for range ticking {
-										fmt.Println(quoteSLice.RandomQuote())
-									}
-								}()
-
-								scanner := bufio.NewScanner(os.Stdin)
-								for scanner.Scan() {
-									if scanner.Text() == "stop" {
-										return nil
-									}
-								}
-								return nil
-							},
-						},
 					},
 				},
 				{
-					Name:    "seconds",
-					Usage:   "seconds between every quote, value accepted if between 1 and 59",
-					Aliases: []string{"s"},
+					Name:    "second",
+					Usage:   "Intervals in seconds between every quote",
+					Aliases: []string{"s", "seconds"},
 					Action: func(c *cli.Context) error {
+						//os.Args[3] is the interval of time between quotes.
+						timer, _ := strconv.Atoi(os.Args[3])
+						commands.Persistent(quoteSLice, timer, "seconds")
 						return nil
-					},
-					Subcommands: []cli.Command{
-						{
-							Aliases: commands.SliceSecondsMinutes(),
-							Hidden:  true,
-							Action: func(c *cli.Context) error {
-								go func() {
-									timer, _ := strconv.Atoi(os.Args[3])
-									ticking := time.Tick(time.Duration(timer) * time.Second)
-									for range ticking {
-										fmt.Println(quoteSLice.RandomQuote())
-									}
-								}()
-
-								scanner := bufio.NewScanner(os.Stdin)
-								for scanner.Scan() {
-									if scanner.Text() == "stop" {
-										return nil
-									}
-								}
-								return nil
-							},
-						},
 					},
 				},
 			},

@@ -67,7 +67,8 @@ Remind yourself that overconfidence is a slow and insidious killer.
 
 ## Commands
 
-help: Shows general info about `ancestorquotes`.
+#### Help:
+Shows general info about `ancestorquotes`.
 
 ```
 $ ancestorquotes help
@@ -96,7 +97,8 @@ GLOBAL OPTIONS:
    --version, -v  print the version
 ```
 
-persistent: Makes `ancestorquotes` to run every certain amount of time.
+#### Persistent:
+Makes `ancestorquotes` run every certain amount of time.
 
 ```
 $ ancestorquotes persistent
@@ -104,17 +106,22 @@ NAME:
    ancestorquotes persistent - Makes the Ancestor say a quote every certain amount of time
 
 USAGE:
-   ancestorquotes persistent command [command options] [arguments...]
+   ancestorquotes persistent [global options] command [command options] [arguments...]
+
+VERSION:
+   1.2
 
 COMMANDS:
-     minutes, m  minutes between every quote, value accepted if between 1 and 59
-     seconds, s  seconds between every quote, value accepted if between 1 and 59
+     minute, m, minutes  Intervals in minutes between every quote
+     second, s, seconds  Intervals in seconds between every quote
 
-OPTIONS:
+GLOBAL OPTIONS:
    --help, -h  show help
 ```
 
-all: Shows all quotes the Ancestor has to offer:
+#### All:
+
+Shows all quotes the Ancestor has to offer:
 
 ```
 $ ancestorquotes all
@@ -131,7 +138,9 @@ So, seek solace in a manner befitting your lineage, and take up your nugatory vi
 ```
 
 
-chat: prints a random quote that ends in a "?" followed by another one that finishes in a "."
+#### Chat:
+
+Prints a random quote that ends in a "?" followed by another one that finishes in a "."
 
 ```
 $ ancestorquotes chat
@@ -140,7 +149,9 @@ Ringing ears, blurred vision - the end approaches...
 
 ```
 
-talkback: The user talks to the Ancestor and the Ancestor replies back in a crazy manner <br>
+#### Talkback:
+
+The user talks to the Ancestor and the Ancestor replies back in a crazy manner <br>
 Enter your name first. Keep on chatting with the Ancestor! Enter `stop` to end the chat.
 
 ```
@@ -165,7 +176,9 @@ USAGE:
    ancestorquotes talkback
 ```
 
-search: searches for all the quotes with the input word on it:
+#### Search:
+
+Searches for all the quotes with the input word on it:
 ```
 $ ancestorquotes search glory
 More arrive foolishly seeking fortune and glory in this domain... Of the damned.
@@ -177,17 +190,18 @@ The bigger the beast, the greater the glory.
 Another life wasted in the pursuit of glory and gold.
 ```
 
-### Sub command
+### Sub-commands
 
-For `persistant` to work, you must use one of the following subcommands:
+#### Persistent:
+For `persistent` to work, you must use one of the following subcommands:
 
-minutes: allows `persistant` run evey "x" minutes, where "x" is a number between 1 and 59.
+minutes: allows `persistent` run evey "x" minutes, where "x" is a number between 1 and 59.
 
 ```
 $ ancestorquotes persistent minutes 1
 ```
 
-seconds: allows `persistant` run evey "x" seconds, where "x" is a number between 1 and 59.
+seconds: allows `persistent` run evey "x" seconds, where "x" is a number between 1 and 59.
 
 ```
 $ ancestorquotes persistent seconds 30
