@@ -32,8 +32,20 @@ func main() {
 					Aliases: []string{"m", "minutes"},
 					Action: func(c *cli.Context) error {
 						//os.Args[3] is the interval of time between quotes.
-						timer, _ := strconv.Atoi(os.Args[3])
-						commands.Persistent(quoteSLice, timer, "minutes")
+						if len(os.Args) < 4 {
+							fmt.Println("Incorrect use of the persistent commnad," +
+								" type 'ancestorquotes persistent help' for more information")
+							return nil
+						} else {
+							timer, _ := strconv.Atoi(os.Args[3])
+							if timer == 0 {
+								fmt.Println("Incorrect use of the persistent commnad," +
+									" type 'ancestorquotes persistent help' for more information")
+								return nil
+							} else {
+								commands.Persistent(quoteSLice, timer, "minute")
+							}
+						}
 						return nil
 					},
 				},
@@ -43,8 +55,20 @@ func main() {
 					Aliases: []string{"s", "seconds"},
 					Action: func(c *cli.Context) error {
 						//os.Args[3] is the interval of time between quotes.
-						timer, _ := strconv.Atoi(os.Args[3])
-						commands.Persistent(quoteSLice, timer, "seconds")
+						if len(os.Args) < 4 {
+							fmt.Println("Incorrect use of the persistent commnad," +
+								" type 'ancestorquotes persistent help' for more information")
+							return nil
+						} else {
+							timer, _ := strconv.Atoi(os.Args[3])
+							if timer == 0 {
+								fmt.Println("Incorrect use of the persistent commnad," +
+									" type 'ancestorquotes persistent help' for more information")
+								return nil
+							} else {
+								commands.Persistent(quoteSLice, timer, "second")
+							}
+						}
 						return nil
 					},
 				},

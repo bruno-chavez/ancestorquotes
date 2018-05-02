@@ -23,7 +23,7 @@ func Persistent(quoteSlice quotes.QuoteSlice, timer int, measure string) {
 
 	//Running a goroutine allowing the command to print put quotes and read for a stop at the same time.
 	switch measure {
-	case "minutes":
+	case "minute":
 		go func() {
 			ticking := time.Tick(time.Duration(timer) * time.Minute)
 			for range ticking {
@@ -31,7 +31,7 @@ func Persistent(quoteSlice quotes.QuoteSlice, timer int, measure string) {
 			}
 		}()
 
-	case "seconds":
+	case "second":
 		go func() {
 			ticking := time.Tick(time.Duration(timer) * time.Second)
 			for range ticking {
