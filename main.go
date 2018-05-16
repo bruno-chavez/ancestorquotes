@@ -103,7 +103,7 @@ func main() {
 		},
 		{
 			Name:    "search",
-			Usage:   "Searches all quotes the Ancestor has ever said with the word wanted to be searched on it",
+			Usage:   "Searches all quotes the Ancestor has ever said with the word searched in them",
 			Aliases: []string{"s"},
 			Action: func(c *cli.Context) error {
 				commands.Search(quoteSLice, c.Args().First())

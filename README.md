@@ -89,7 +89,7 @@ COMMANDS:
      all, a         Shows all quotes the Ancestor has to offer
      chat, c        The Ancestor talks with himself in a maddening fashion
      talkback, t    You can talk to the Ancestor and the Ancestor replies back in a crazy manner
-     search, s      Searches all quotes the Ancestor has ever said with the word wanted to be searched on it
+     search, s      Searches all quotes the Ancestor has ever said with the word searched in them
      help, h        Shows a list of commands or help for one command
 
 GLOBAL OPTIONS:
