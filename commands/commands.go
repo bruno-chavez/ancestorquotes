@@ -21,7 +21,7 @@ func AllQuotes(quoteSlice quotes.QuoteSlice) {
 //Persistent makes the app print out a quote every certain amount of time.
 func Persistent(quoteSlice quotes.QuoteSlice, timer int, measure string) {
 
-	//Running a goroutine allowing the command to print put quotes and read for a stop at the same time.
+	//Running a goroutine makes it possible to print a quote and wait for a stop message at the same time.
 	switch measure {
 	case "minute":
 		go func() {
