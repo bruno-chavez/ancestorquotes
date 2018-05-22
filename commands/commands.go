@@ -10,7 +10,7 @@ import (
 	"time"
 )
 
-//AllQuotes prints all quotes to standard output.
+//AllQuotes prints all quotes.
 func AllQuotes(quoteSlice quotes.QuoteSlice) {
 
 	for _, quote := range quoteSlice {
@@ -18,7 +18,7 @@ func AllQuotes(quoteSlice quotes.QuoteSlice) {
 	}
 }
 
-//Persistent makes the app print out a quote every certain amount of time.
+//Persistent prints a quote every certain amount of time.
 func Persistent(quoteSlice quotes.QuoteSlice, timer int, measure string) {
 
 	//Running a goroutine makes it possible to print a quote and wait for a stop message at the same time.
@@ -66,7 +66,7 @@ func Chat(quoteSlice quotes.QuoteSlice) {
 	fmt.Println(statements.RandomQuote())
 }
 
-//TalkBack talks to the Ancestor and the Ancestor replies back in a random manner
+//TalkBack prints a quote every time it gets an input message.
 func TalkBack(quoteSlice quotes.QuoteSlice) {
 	userName := ""
 	userReply := ""
@@ -99,15 +99,15 @@ func TalkBack(quoteSlice quotes.QuoteSlice) {
 
 //Search filters every word in the database to match an input word and prints every quote that the word is part of.
 func Search(quoteSlice quotes.QuoteSlice, wordToSearch string) {
-	//flag is used to know if the search got any matches.
-	flag := true
+	//matched is used to know if the search got any matches.
+	matched := false
 
 	quoteMatched := make([]string, 0)
 
 	//quote is a QuoteType type.
 	//wordXSlice is a slice with one word and white-spaces that appear after a filter is applied.
 	//wordXFilter is a string inside a wordXSlice.
-
+	//This for is a candidate for been transformed into an auxiliary function.
 	for _, quote := range quoteSlice {
 		wordFirstSlice := strings.Split(quote.Quote, " ")
 
@@ -124,16 +124,15 @@ func Search(quoteSlice quotes.QuoteSlice, wordToSearch string) {
 					//If a match is found, the quote that the filtered word belongs to, is printed.
 					if filteredWord[0] == wordToSearch {
 						quoteMatched = append(quoteMatched, quote.Quote)
-						flag = false
+						matched = true
 					}
 				}
 			}
 		}
 	}
-	if flag {
-		fmt.Println("'" + wordToSearch + "'" + " is not in any quote.")
-	} else {
-		//Defining a nested function helps to keep the code clean in the later parts of it.
+	if matched {
+		//Defining a nested function makes the next part clearer to see.
+		//Candidate for been taking out of the Search func and be used as an auxiliary, separate func instead.
 		inside := func(comparingQuote string, unfilteredSlice []string) bool {
 			for _, i := range unfilteredSlice {
 				if i == comparingQuote {
@@ -160,5 +159,8 @@ func Search(quoteSlice quotes.QuoteSlice, wordToSearch string) {
 		for _, element := range cleanSlice {
 			fmt.Println(element + "\n")
 		}
+	} else {
+		fmt.Println("'" + wordToSearch + "'" + " is not present in any quote.")
+
 	}
 }

@@ -20,10 +20,10 @@ type QuoteType struct {
 	Quote string `json:"quote"`
 }
 
-//QuoteSlice is used to parse the whole json quotes in a slice of the QuoteType type.
+//QuoteSlice is used to parse the JSON file under a single, usable type.
 type QuoteSlice []QuoteType
 
-//Parse fetches from quotes.json and puts it on a QuoteSlice type slice.
+//Parse fetches quotes.json and puts it on a QuoteSlice type.
 func Parse() QuoteSlice {
 
 	// Extremely tedious way to always find the json file.
@@ -60,7 +60,7 @@ func Parse() QuoteSlice {
 	return parsedJSON
 }
 
-//RandomQuote is a method of the QuoteSlice type that  returns a random quote.
+//RandomQuote is a method of the QuoteSlice type that returns a random quote.
 func (q QuoteSlice) RandomQuote() string {
 	return q[rand.Intn(len(q))].Quote
 }

@@ -114,7 +114,8 @@ func main() {
 
 	app.Action = func(c *cli.Context) error {
 		if len(c.Args()) > 0 {
-			fmt.Printf("%v is not a valid command.\nEnter ancestorquotes --help to see the list of valid commands.\n", c.Args()[0])
+			fmt.Printf("%v is not a valid command.\n"+
+				"Enter ancestorquotes --help to see the list of valid commands.\n", c.Args()[0])
 		} else {
 			fmt.Println(quoteSLice.RandomQuote())
 		}
