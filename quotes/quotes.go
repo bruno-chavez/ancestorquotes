@@ -1,4 +1,4 @@
-//Package quotes takes care of processing the JSON file, define types and methods that are needed for commands.
+// Package quotes takes care of processing the JSON file, define types and methods that are needed for commands.
 package quotes
 
 import (
@@ -10,20 +10,20 @@ import (
 	"time"
 )
 
-//init is needed to seed the rand package.
+// init is needed to seed the rand package.
 func init() {
 	rand.Seed(time.Now().UTC().UnixNano())
 }
 
-//QuoteType is the type that each quote will have once the JSON file is processed.
+// QuoteType is the type that each quote will have once the JSON file is processed.
 type QuoteType struct {
 	Quote string `json:"quote"`
 }
 
-//QuoteSlice is used to parse the JSON file under a single, usable type.
+// QuoteSlice is used to parse the JSON file under a single, usable type.
 type QuoteSlice []QuoteType
 
-//Parse fetches quotes.json and puts it on a QuoteSlice type.
+// Parse fetches quotes.json and puts it on a QuoteSlice type.
 func Parse() QuoteSlice {
 
 	// Extremely tedious way to always find the json file.
@@ -51,7 +51,9 @@ func Parse() QuoteSlice {
 		panic(err2)
 	}
 
-	parsedJSON := make(QuoteSlice, 0)
+	// The capacity is 393 because it is the total number of quotes, subject to change.
+	// The capacity is set manually to optimize the program.
+	parsedJSON := make(QuoteSlice, 0, 393)
 	err3 := json.Unmarshal(readJSON, &parsedJSON)
 	if err3 != nil {
 		panic(err3)
@@ -60,7 +62,7 @@ func Parse() QuoteSlice {
 	return parsedJSON
 }
 
-//RandomQuote is a method of the QuoteSlice type that returns a random quote.
+// RandomQuote is a method of the QuoteSlice type that returns a random quote.
 func (q QuoteSlice) RandomQuote() string {
 	return q[rand.Intn(len(q))].Quote
 }

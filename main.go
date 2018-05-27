@@ -9,8 +9,8 @@ import (
 	"strconv"
 )
 
-//Contains all the quotes in a QuoteSlice type slice.
-//Used as a global variable to avoid having multiples of the same slice, reducing load times and memory usage.
+// quoteSlice contains all the quotes in a QuoteSlice type.
+// Used as a global variable to avoid having multiples of the same slice, reducing load times and memory usage.
 var quoteSLice = quotes.Parse()
 
 func main() {
