@@ -78,7 +78,8 @@ NAME:
 USAGE:
    main [global options] command [command options] [arguments...]
 
-VERSION:
+VERSION:							// When using strconv on a non numeral string it gets converted 0
+
    1.2
 
 AUTHOR:
@@ -238,4 +239,4 @@ Want to add an awesome new feature? [Fork](https://github.com/bruno-chavez/ances
 
 ## License
 The MIT License (MIT)
-Copyright (c) 2017 Bruno Chavez
+Copyright (c) 2017-2018 Bruno Chavez

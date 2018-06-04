@@ -52,7 +52,7 @@ func Parse() QuoteSlice {
 	}
 
 	// The capacity is 393 because it is the total number of quotes, subject to change.
-	// The capacity is set manually to optimize the program.
+	// The capacity is manually set for a more optimized program.
 	parsedJSON := make(QuoteSlice, 0, 393)
 	err3 := json.Unmarshal(readJSON, &parsedJSON)
 	if err3 != nil {

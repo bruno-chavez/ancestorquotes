@@ -38,6 +38,7 @@ func main() {
 							return nil
 						} else {
 							timer, _ := strconv.Atoi(os.Args[3])
+							// When using strconv on a non numeral string it gets converted 0
 							if timer == 0 {
 								fmt.Println("Incorrect use of the persistent commnad," +
 									" type 'ancestorquotes persistent help' for more information")
@@ -61,6 +62,7 @@ func main() {
 							return nil
 						} else {
 							timer, _ := strconv.Atoi(os.Args[3])
+							// When using strconv on a non numeral string it gets converted 0
 							if timer == 0 {
 								fmt.Println("Incorrect use of the persistent commnad," +
 									" type 'ancestorquotes persistent help' for more information")
