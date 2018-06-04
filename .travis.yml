@@ -1,0 +1,22 @@
+language: go
+
+notifications:
+  email:
+    on_success: never
+
+before_deploy:
+  - GOOS=linux GOARCH=amd64 go build -o ancestorquotes-linux-amd64
+  - GOOS=windows GOARCH=amd64 go build -o ancestorquotes-windows-amd64.exe
+  - GOOS=darwin GOARCH=amd64 go build -o ancestorquotes-macos-amd64
+
+deploy:
+  provider: releases
+  skip_cleanup: true
+  api_key:
+    secure: XRhWYa6k1IQCRgWURl0CSj2SzSgJu62YRfwXEFZMkE15LZVdcM3nYwbsGEMv5o3Iw1C0GqWrcCGUGOZpCoOCP+24qo2l3LeR1tvvOcT8dHt4Ze3oRT3Dsl0xPj95/nX5qhuvDKo1hVvQ8+VEs1YXvik/mstWMM3IVFf32eeG+LN0r8RGSwZKCcrTpF6r5lsWWROLowpQ7smiE1e8S0fBuhEQOs2ULnRnANT5d++458ETClSe0DvTPvq859XbwnwzspIXIW7Oq/KUmrhsFe4kXqcgCkwMVaTK6xKdFdvu8Qgs6X8prRpVeqFcSstFIivjUblnZ1xS/oOZUjMn/XxvWmTUSpPZsrYWNJIGl5NVLR+cmptRqCW8aP0VVFV0+IbDKwOPU3jEVTbUAjwGwcH6j6O8AXu6S9hXAU08daZ1iG30kWijalQ3ZYC2whKsaXP8McZQPXLhnWTZEDKJlGqW+bIWPE3ttbW36siWsw7r3e+xi8PiLIFU2ARUfcnZCFurz5RuuEmAtFb1LqcPtYkDAdH6MZYQE1riKcBO5ghvOMqo50QHoa215imaVigBCErteGW+TH/g8lj+s5JMCj240of0/liJDVaSa09x7mJ+OYzs1bBVOUvVkbG92IDa5H9vjOnBAmtKOnaqNnrzX1mWwUVGLYuQZcu/i+Qhu6D2F8c=
+  file:
+    - "ancestorquotes-linux-amd64"
+    - "ancestorquotes-windows-amd64.exe"
+    - "ancestorquotes-macos-amd64"
+  on:
+tags: true
