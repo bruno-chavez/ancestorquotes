@@ -1,6 +1,6 @@
 [![GoDoc](https://godoc.org/github.com/bruno-chavez/ancestorquotes?status.svg)](https://godoc.org/github.com/bruno-chavez/ancestorquotes)
 [![Go Report Card](https://goreportcard.com/badge/github.com/bruno-chavez/ancestorquotes)](https://goreportcard.com/report/github.com/bruno-chavez/ancestorquotes)
-
+[![Build Status](https://travis-ci.org/bruno-chavez/ancestorquotes.svg?branch=master)](https://travis-ci.org/bruno-chavez/ancestorquotes)
 
 `ancestorquotes` is a fun, little command-line app written in Go,
 shows quotes used by the Ancestor,
