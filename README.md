@@ -6,11 +6,17 @@
 shows quotes used by the Ancestor,
 the narrator of the videogame Darkest Dungeon.
 
-## Installation
+## Download & Installation
 
-### Linux
+### Executables:
 
-#### From source code:
+`ancestorquotes` can be downloaded for every OS [here](https://github.com/bruno-chavez/ancestorquotes/releases) simply click on the one that has your OS and architecture on its name.
+
+After its downloaded run the file to start using `ancestorquotes`!
+
+Note that it has not been tested on Windows or MacOS if you run into any problems while trying to install or use it feel free to create an [issue](https://github.com/bruno-chavez/ancestorquotes/issues) and tell me about it.
+
+### From source code:
 
 Requires Go to be installed on your machine. You can install Go from [here](https://golang.org/doc/install).
 
@@ -34,12 +40,6 @@ And last, on a terminal type:
 $ go install
 ```
 
-### Executables:
-
-`ancestorquotes` can be downloaded for every OS [here](https://github.com/bruno-chavez/ancestorquotes/releases) simply click on the one that has your OS and architecture on its name
-
-Note that `ancestorquotes` has not been tested on Windows or MacOS if you run into any problems while trying to install or use it feel free to create an [issue](https://github.com/bruno-chavez/ancestorquotes/issues) and tell me about it.
-
 ## Updating
 
 To update `ancestorquotes` simply type:
@@ -57,7 +57,7 @@ ancestorquotes version 1.2
 
 ## Usage
 
-Simply type `ancestorquotes` and a random quote from the Ancestor will be displayed:
+Type `ancestorquotes` and a random quote from the Ancestor will be displayed:
 
 ```
 $ ancestorquotes
@@ -99,6 +99,7 @@ GLOBAL OPTIONS:
 ```
 
 #### Persistent:
+
 Makes `ancestorquotes` run every certain amount of time.
 
 ```
