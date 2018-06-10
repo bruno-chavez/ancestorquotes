@@ -4,6 +4,7 @@ package quotes
 import (
 	"encoding/json"
 	"io/ioutil"
+	"log"
 	"math/rand"
 	"os"
 	"strings"
@@ -43,12 +44,12 @@ func Parse() QuoteSlice {
 
 	rawJSON, err := os.Open(path)
 	if err != nil {
-		panic(err)
+		log.Fatal(err)
 	}
 
 	readJSON, err2 := ioutil.ReadAll(rawJSON)
 	if err2 != nil {
-		panic(err2)
+		log.Fatal(err2)
 	}
 
 	// The capacity is 393 because it is the total number of quotes, subject to change.
@@ -56,7 +57,7 @@ func Parse() QuoteSlice {
 	parsedJSON := make(QuoteSlice, 0, 393)
 	err3 := json.Unmarshal(readJSON, &parsedJSON)
 	if err3 != nil {
-		panic(err3)
+		log.Fatal(err3)
 	}
 
 	return parsedJSON

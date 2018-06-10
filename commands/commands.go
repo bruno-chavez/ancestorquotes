@@ -4,10 +4,11 @@ package commands
 import (
 	"bufio"
 	"fmt"
-	"github.com/bruno-chavez/ancestorquotes/quotes"
 	"os"
 	"strings"
 	"time"
+
+	"github.com/bruno-chavez/ancestorquotes/quotes"
 )
 
 // AllQuotes prints all quotes.

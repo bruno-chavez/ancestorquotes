@@ -2,11 +2,13 @@ package main
 
 import (
 	"fmt"
+	"log"
+	"os"
+	"strconv"
+
 	"github.com/bruno-chavez/ancestorquotes/commands"
 	"github.com/bruno-chavez/ancestorquotes/quotes"
 	"github.com/urfave/cli"
-	"os"
-	"strconv"
 )
 
 // quoteSlice contains all the quotes in a QuoteSlice type.
@@ -36,17 +38,16 @@ func main() {
 							fmt.Println("Incorrect use of the persistent commnad," +
 								" type 'ancestorquotes persistent help' for more information")
 							return nil
-						} else {
-							timer, _ := strconv.Atoi(os.Args[3])
-							// When using strconv on a non numeral string it gets converted 0
-							if timer == 0 {
-								fmt.Println("Incorrect use of the persistent commnad," +
-									" type 'ancestorquotes persistent help' for more information")
-								return nil
-							} else {
-								commands.Persistent(quoteSLice, timer, "minute")
-							}
 						}
+						timer, _ := strconv.Atoi(os.Args[3])
+						// When using strconv on a non numeral string it gets converted 0
+						if timer == 0 {
+							fmt.Println("Incorrect use of the persistent commnad," +
+								" type 'ancestorquotes persistent help' for more information")
+							return nil
+						}
+						commands.Persistent(quoteSLice, timer, "minute")
+
 						return nil
 					},
 				},
@@ -60,17 +61,16 @@ func main() {
 							fmt.Println("Incorrect use of the persistent commnad," +
 								" type 'ancestorquotes persistent help' for more information")
 							return nil
-						} else {
-							timer, _ := strconv.Atoi(os.Args[3])
-							// When using strconv on a non numeral string it gets converted 0
-							if timer == 0 {
-								fmt.Println("Incorrect use of the persistent commnad," +
-									" type 'ancestorquotes persistent help' for more information")
-								return nil
-							} else {
-								commands.Persistent(quoteSLice, timer, "second")
-							}
 						}
+						timer, _ := strconv.Atoi(os.Args[3])
+						// When using strconv on a non numeral string it gets converted 0
+						if timer == 0 {
+							fmt.Println("Incorrect use of the persistent commnad," +
+								" type 'ancestorquotes persistent help' for more information")
+							return nil
+						}
+						commands.Persistent(quoteSLice, timer, "second")
+
 						return nil
 					},
 				},
@@ -123,6 +123,9 @@ func main() {
 		}
 		return nil
 	}
-	app.Run(os.Args)
-	return
+
+	err := app.Run(os.Args)
+	if err != nil {
+		log.Fatal(err)
+	}
 }
