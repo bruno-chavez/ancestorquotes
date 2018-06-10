@@ -5,8 +5,7 @@ import (
 	"encoding/json"
 	"io/ioutil"
 	"math/rand"
-	"os"
-	"strings"
+	"path/filepath"
 	"time"
 )
 
@@ -26,37 +25,18 @@ type QuoteSlice []QuoteType
 // Parse fetches quotes.json and puts it on a QuoteSlice type.
 func Parse() QuoteSlice {
 
-	// Extremely tedious way to always find the json file.
-	// Its pretty horrible to look at, but it works, somebody please do it better than me.
-	currentDir, _ := os.Getwd()
-	totalDoubleDots := len(strings.Split(currentDir, "/"))
-	path := os.Getenv("GOPATH") + "/src/github.com/bruno-chavez/ancestorquotes/quotes/quotes.json"
-	goingBack := ""
-	for i := 1; i <= totalDoubleDots; i++ {
-		if i == totalDoubleDots {
-			goingBack = goingBack + ".."
-		} else {
-			goingBack = "../" + goingBack
-		}
-	}
-	path = goingBack + path
-
-	rawJSON, err := os.Open(path)
+	absPath, _ := filepath.Abs("../quotes/quotes.json")
+	readJSON, err := ioutil.ReadFile(absPath)
 	if err != nil {
 		panic(err)
-	}
-
-	readJSON, err2 := ioutil.ReadAll(rawJSON)
-	if err2 != nil {
-		panic(err2)
 	}
 
 	// The capacity is 393 because it is the total number of quotes, subject to change.
 	// The capacity is manually set for a more optimized program.
 	parsedJSON := make(QuoteSlice, 0, 393)
-	err3 := json.Unmarshal(readJSON, &parsedJSON)
-	if err3 != nil {
-		panic(err3)
+	err2 := json.Unmarshal(readJSON, &parsedJSON)
+	if err2 != nil {
+		panic(err2)
 	}
 
 	return parsedJSON
