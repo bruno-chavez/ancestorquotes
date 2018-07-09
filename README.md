@@ -10,7 +10,7 @@ the narrator of the videogame Darkest Dungeon.
 
 ### Executables:
 
-`ancestorquotes` is suppors Linux and Mac, it can be downloaded [here](https://github.com/bruno-chavez/ancestorquotes/releases) simply click on the one that has your OS and architecture on its name.
+`ancestorquotes` is supports Linux and Mac, it can be downloaded [here](https://github.com/bruno-chavez/ancestorquotes/releases) simply click on the one that has your OS and architecture on its name.
 
 After its downloaded run the file to start using `ancestorquotes`!
 
