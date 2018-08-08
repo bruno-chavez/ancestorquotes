@@ -9,6 +9,7 @@ import (
 	"os"
 	"strings"
 	"time"
+	"fmt"
 )
 
 // init is needed to seed the rand package.
@@ -31,16 +32,22 @@ func Parse() QuoteSlice {
 	// Its pretty horrible to look at, but it works, somebody please do it better than me.
 	currentDir, _ := os.Getwd()
 	totalDoubleDots := len(strings.Split(currentDir, "/"))
-	path := os.Getenv("GOPATH") + "/src/github.com/bruno-chavez/ancestorquotes/quotes/quotes.json"
-	goingBack := ""
-	for i := 1; i <= totalDoubleDots; i++ {
-		if i == totalDoubleDots {
-			goingBack = goingBack + ".."
-		} else {
-			goingBack = "../" + goingBack
+	var path = ""
+	if os.Getenv("DOCKER") != "" {
+		path = "./quotes/quotes.json"
+		
+	} else {
+		path = os.Getenv("GOPATH") + "/src/github.com/bruno-chavez/ancestorquotes/quotes/quotes.json"
+		goingBack := ""
+		for i := 1; i <= totalDoubleDots; i++ {
+			if i == totalDoubleDots {
+				goingBack = goingBack + ".."
+			} else {
+				goingBack = "../" + goingBack
+			}
 		}
+		path = goingBack + path
 	}
-	path = goingBack + path
 
 	rawJSON, err := os.Open(path)
 	if err != nil {
