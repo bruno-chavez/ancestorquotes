@@ -9,7 +9,6 @@ import (
 	"os"
 	"strings"
 	"time"
-	"fmt"
 )
 
 // init is needed to seed the rand package.
