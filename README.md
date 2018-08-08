@@ -67,7 +67,7 @@ $ ancestorquotes
 Remind yourself that overconfidence is a slow and insidious killer.
 ```
 
-To run a built Docker image, call `docker run <name>` for a random quote, or call `docker run <name> ./app <arg>`, where <arg> is one of the command line options detailed below.
+To run a built Docker image, call `docker run <name>` for a random quote, or call `docker run <name> ./app <arg>`, where `<arg>` is one of the command line options detailed below.
 ## Commands
 
 #### Help:
