@@ -8,7 +8,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/bruno-chavez/ancestorquotes/quotes"
+	"ancestorquotes/quotes"
 )
 
 // AllQuotes prints all quotes.
