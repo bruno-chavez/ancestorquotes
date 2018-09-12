@@ -13,9 +13,15 @@ import (
 
 // quoteSlice contains all the quotes in a QuoteSlice type.
 // Used as a global variable to avoid having multiples of the same slice, reducing load times and memory usage.
-var quoteSLice = quotes.Parse()
+var quoteSLice quotes.QuoteSlice
 
 func main() {
+
+	var err error
+	quoteSLice, err = quotes.Parse()
+	if err != nil {
+		log.Fatal(err)
+	}
 
 	app := cli.NewApp()
 	app.Name = "ancestorquotes"
@@ -124,7 +130,7 @@ func main() {
 		return nil
 	}
 
-	err := app.Run(os.Args)
+	err = app.Run(os.Args)
 	if err != nil {
 		log.Fatal(err)
 	}

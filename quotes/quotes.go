@@ -4,10 +4,9 @@ package quotes
 import (
 	"encoding/json"
 	"io/ioutil"
-	"log"
 	"math/rand"
 	"os"
-	"strings"
+	"runtime"
 	"time"
 )
 
@@ -24,49 +23,39 @@ type QuoteType struct {
 // QuoteSlice is used to parse the JSON file under a single, usable type.
 type QuoteSlice []QuoteType
 
-// Parse fetches quotes.json and puts it on a QuoteSlice type.
-func Parse() QuoteSlice {
-
-	// Extremely tedious way to always find the json file.
-	// Its pretty horrible to look at, but it works, somebody please do it better than me.
-	currentDir, _ := os.Getwd()
-	totalDoubleDots := len(strings.Split(currentDir, "/"))
-	var path = ""
+func getPath() (path string) {
+	path = os.Getenv("GOPATH") + "/src/github.com/bruno-chavez/ancestorquotes/quotes/quotes.json"
+	if runtime.GOOS == "windows" {
+		path = os.Getenv("GOPATH") + "\\src\\github.com\\bruno-chavez\\ancestorquotes\\quotes\\quotes.json"
+	}
 	if os.Getenv("DOCKER") != "" {
 		path = "./quotes/quotes.json"
-		
-	} else {
-		path = os.Getenv("GOPATH") + "/src/github.com/bruno-chavez/ancestorquotes/quotes/quotes.json"
-		goingBack := ""
-		for i := 1; i <= totalDoubleDots; i++ {
-			if i == totalDoubleDots {
-				goingBack = goingBack + ".."
-			} else {
-				goingBack = "../" + goingBack
-			}
-		}
-		path = goingBack + path
-	}
 
-	rawJSON, err := os.Open(path)
+	}
+	return
+}
+
+// Parse fetches quotes.json and puts it on a QuoteSlice type.
+func Parse() (QuoteSlice, error) {
+	rawJSON, err := os.Open(getPath())
 	if err != nil {
-		log.Fatal(err)
+		return nil, err
 	}
 
-	readJSON, err2 := ioutil.ReadAll(rawJSON)
-	if err2 != nil {
-		log.Fatal(err2)
+	readJSON, err := ioutil.ReadAll(rawJSON)
+	if err != nil {
+		return nil, err
 	}
 
 	// The capacity is 393 because it is the total number of quotes, subject to change.
 	// The capacity is manually set for a more optimized program.
 	parsedJSON := make(QuoteSlice, 0, 393)
-	err3 := json.Unmarshal(readJSON, &parsedJSON)
-	if err3 != nil {
-		log.Fatal(err3)
+	err = json.Unmarshal(readJSON, &parsedJSON)
+	if err != nil {
+		return nil, err
 	}
 
-	return parsedJSON
+	return parsedJSON, nil
 }
 
 // RandomQuote is a method of the QuoteSlice type that returns a random quote.
