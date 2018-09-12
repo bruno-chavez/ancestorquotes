@@ -6,8 +6,8 @@ import (
 	"os"
 	"strconv"
 
-	"github.com/bruno-chavez/ancestorquotes/commands"
-	"github.com/bruno-chavez/ancestorquotes/quotes"
+	"ancestorquotes/commands"
+	"ancestorquotes/quotes"
 	"github.com/urfave/cli"
 )
 
