@@ -3,11 +3,10 @@ package quotes
 
 import (
 	"encoding/json"
-	"io/ioutil"
 	"log"
 	"math/rand"
 	"os"
-	"strings"
+	"path/filepath"
 	"time"
 )
 
@@ -25,48 +24,37 @@ type QuoteType struct {
 type QuoteSlice []QuoteType
 
 // Parse fetches quotes.json and puts it on a QuoteSlice type.
-func Parse() QuoteSlice {
+func Parse() (qs QuoteSlice) {
 
-	// Extremely tedious way to always find the json file.
-	// Its pretty horrible to look at, but it works, somebody please do it better than me.
-	currentDir, _ := os.Getwd()
-	totalDoubleDots := len(strings.Split(currentDir, "/"))
 	var path = ""
 	if os.Getenv("DOCKER") != "" {
 		path = "./quotes/quotes.json"
-		
+
 	} else {
-		path = os.Getenv("GOPATH") + "/src/github.com/bruno-chavez/ancestorquotes/quotes/quotes.json"
-		goingBack := ""
-		for i := 1; i <= totalDoubleDots; i++ {
-			if i == totalDoubleDots {
-				goingBack = goingBack + ".."
-			} else {
-				goingBack = "../" + goingBack
-			}
+		pwd, err := os.Getwd()
+		if err != nil {
+			panic(err)
 		}
-		path = goingBack + path
+
+		path = filepath.Join(pwd, "quotes", "quotes.json")
 	}
 
-	rawJSON, err := os.Open(path)
+	jsonFile, err := os.Open(path)
+	if err != nil {
+		panic(err)
+	}
+
+	// Get size of JSON file in bytes
+	sizeInBytes, _ := jsonFile.Stat()
+	data := make([]byte, sizeInBytes.Size())
+
+	_, _ = jsonFile.Read(data) // Read JSON data into byte slice
+	err = json.Unmarshal(data, &qs)
 	if err != nil {
 		log.Fatal(err)
 	}
 
-	readJSON, err2 := ioutil.ReadAll(rawJSON)
-	if err2 != nil {
-		log.Fatal(err2)
-	}
-
-	// The capacity is 393 because it is the total number of quotes, subject to change.
-	// The capacity is manually set for a more optimized program.
-	parsedJSON := make(QuoteSlice, 0, 393)
-	err3 := json.Unmarshal(readJSON, &parsedJSON)
-	if err3 != nil {
-		log.Fatal(err3)
-	}
-
-	return parsedJSON
+	return qs
 }
 
 // RandomQuote is a method of the QuoteSlice type that returns a random quote.
