@@ -12,9 +12,9 @@ the narrator of the videogame Darkest Dungeon.
 
 `ancestorquotes` supports Linux and Mac, it can be downloaded [here](https://github.com/bruno-chavez/ancestorquotes/releases) simply click on the binary that has your OS and architecture on its name.
 
-After its downloaded run the file to start using `ancestorquotes`!
+After it is downloaded, run the file to start using `ancestorquotes`!
 
-Note that it has not been tested on MacOS if you run into any problems while trying to install or use it feel free to create an [issue](https://github.com/bruno-chavez/ancestorquotes/issues) and tell me about it.
+Note that it has not been tested on MacOS. If you run into any problems while trying to install or use it, feel free to create an [issue](https://github.com/bruno-chavez/ancestorquotes/issues) and tell me about it.
 
 ### From source code:
 
