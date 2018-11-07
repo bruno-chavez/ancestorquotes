@@ -20,7 +20,7 @@ Note that it has not been tested on MacOS. If you run into any problems while tr
 
 Requires Go to be installed on your machine. You can install Go from [here](https://golang.org/doc/install).
 
-Also requires [cli](https://github.com/urfave/cli) a pretty awesome Go package used for the  skeleton of `ancestorquotes`, all the credit for this app goes to this package!
+Also requires [cli](https://github.com/urfave/cli), a pretty awesome Go package used for the  skeleton of `ancestorquotes`. All of the credit for this app goes to this package!
 
 Once installed, and with a correctly configured GOPATH, on a terminal type:
 
