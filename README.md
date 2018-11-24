@@ -31,7 +31,7 @@ $ go get github.com/bruno-chavez/ancestorquotes
 Then go to:
 
 ```
-$GOPATH/src/github.com/bruno-chavez/ancetorquotes
+$GOPATH/src/github.com/bruno-chavez/ancestorquotes
 ```
 
 And last, on a terminal type:
@@ -39,6 +39,8 @@ And last, on a terminal type:
 ```
 $ go install
 ```
+
+If using the Dockerfile to generate a Docker image for this application (which doesn't require a Go installation or specific operating system only a Docker engine), simply run `docker build . -t <name>` from the base directory of the repository.
 
 ## Updating
 
@@ -65,6 +67,7 @@ $ ancestorquotes
 Remind yourself that overconfidence is a slow and insidious killer.
 ```
 
+To run a built Docker image, call `docker run <name>` for a random quote, or call `docker run <name> ./app <arg>`, where `<arg>` is one of the command line options detailed below.
 ## Commands
 
 #### Help:
