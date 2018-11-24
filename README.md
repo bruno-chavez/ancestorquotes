@@ -78,7 +78,7 @@ NAME:
 USAGE:
    main [global options] command [command options] [arguments...]
 
-VERSION:							// When using strconv on a non numeral string it gets converted 0
+VERSION:
 
    1.2
 
