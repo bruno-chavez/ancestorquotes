@@ -12,15 +12,15 @@ the narrator of the videogame Darkest Dungeon.
 
 `ancestorquotes` supports Linux and Mac, it can be downloaded [here](https://github.com/bruno-chavez/ancestorquotes/releases) simply click on the binary that has your OS and architecture on its name.
 
-After its downloaded run the file to start using `ancestorquotes`!
+After it is downloaded, run the file to start using `ancestorquotes`!
 
-Note that it has not been tested on MacOS if you run into any problems while trying to install or use it feel free to create an [issue](https://github.com/bruno-chavez/ancestorquotes/issues) and tell me about it.
+Note that it has not been tested on MacOS. If you run into any problems while trying to install or use it, feel free to create an [issue](https://github.com/bruno-chavez/ancestorquotes/issues) and tell me about it.
 
 ### From source code:
 
 Requires Go to be installed on your machine. You can install Go from [here](https://golang.org/doc/install).
 
-Also requires [cli](https://github.com/urfave/cli) a pretty awesome Go package used for the  skeleton of `ancestorquotes`, all the credit for this app goes to this package!
+Also requires [cli](https://github.com/urfave/cli), a pretty awesome Go package used for the  skeleton of `ancestorquotes`. All of the credit for this app goes to this package!
 
 Once installed, and with a correctly configured GOPATH, on a terminal type:
 
