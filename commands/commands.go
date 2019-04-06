@@ -20,10 +20,10 @@ func RandomQuote() string {
 	return quotes.randomQuote()
 }
 
-// Persistent prints a Quote every certain amount of time.
+// Persistent prints a Quotes every certain amount of time.
 func Persistent(timer int, measure string) {
 
-	// Running a goroutine makes it possible to print a Quote and wait for a stop message at the same time.
+	// Running a goroutine makes it possible to print a Quotes and wait for a stop message at the same time.
 	switch measure {
 	case "minute":
 		go func() {
@@ -50,11 +50,11 @@ func Persistent(timer int, measure string) {
 	}
 }
 
-// Chat randomly selects a Quote ending with a "?" and another one ending with a "." and prints them.
+// Chat randomly selects a Quotes ending with a "?" and another one ending with a "." and prints them.
 func Chat() {
 	// split quotes into questions and statements
-	var questions Quote
-	var statements Quote
+	var questions Quotes
+	var statements Quotes
 
 	for _, quote := range quotes {
 		if strings.HasSuffix(quote, "?") {
@@ -68,7 +68,7 @@ func Chat() {
 	fmt.Println(statements.randomQuote())
 }
 
-// TalkBack prints a Quote every time it gets an input message.
+// TalkBack prints a Quotes every time it gets an input message.
 func TalkBack() {
 	userName := ""
 	userReply := ""
@@ -83,7 +83,7 @@ func TalkBack() {
 
 	if userName == "stop" {
 		fmt.Println("Good bye nameless fiend!")
-		fmt.Println("Bear in mind my last Quote")
+		fmt.Println("Bear in mind my last Quotes")
 		fmt.Println("Ancestor says: " + quotes.randomQuote())
 		return
 	}
@@ -94,7 +94,7 @@ func TalkBack() {
 		userReply, _ = reader.ReadString('\n')
 		if userReply == "stop\n" {
 			fmt.Println("Good bye " + userName)
-			fmt.Println("Bear in mind my last Quote")
+			fmt.Println("Bear in mind my last Quotes")
 			fmt.Println("Ancestor says: " + quotes.randomQuote())
 			break
 		}
@@ -102,14 +102,14 @@ func TalkBack() {
 	}
 }
 
-// Search filters every word in the database to match an input word and prints every Quote that the word is part of.
+// Search filters every word in the database to match an input word and prints every Quotes that the word is part of.
 func Search(wordToSearch string) {
 	// matched is used to know if the search got any matches.
 	matched := false
 
 	quoteMatched := make([]string, 0)
 
-	// Quote is a QuoteType type.
+	// Quotes is a QuoteType type.
 	// wordXSlice is a slice with one word and white-spaces that appear after a filter is applied.
 	// wordXFilter is a string inside a wordXSlice.
 	// This "for" is a candidate for been transformed into an auxiliary, recursive function.
@@ -126,7 +126,7 @@ func Search(wordToSearch string) {
 					filteredWord := strings.Split(wordThirdFilter, ".")
 
 					// After all the filters are applied the filtered word is compared with the word that is been searched.
-					// If a match is found, the Quote that the filtered word belongs to, is printed.
+					// If a match is found, the Quotes that the filtered word belongs to, is printed.
 					if filteredWord[0] == wordToSearch {
 						quoteMatched = append(quoteMatched, quote)
 						matched = true
@@ -167,6 +167,6 @@ func Search(wordToSearch string) {
 		}
 
 	} else {
-		fmt.Println("'" + wordToSearch + "'" + " is not present in any Quote.")
+		fmt.Println("'" + wordToSearch + "'" + " is not present in any Quotes.")
 	}
 }

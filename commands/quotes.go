@@ -9,14 +9,16 @@ func init() {
 	rand.Seed(time.Now().UTC().UnixNano())
 }
 
-type Quote []string
+// Type Quotes contains quotes
+type Quotes []string
 
 // randomQuote is a method of the QuoteSlice type that returns a random quote.
-func (q Quote) randomQuote() string {
+func (q Quotes) randomQuote() string {
 	return q[rand.Intn(len(q))]
 }
 
-var quotes = Quote{"There is a place, beneath those ancient ruins, in the moor, that calls out to the boldest among them...",
+// Contains all the quotes fom the game
+var quotes = Quotes{"There is a place, beneath those ancient ruins, in the moor, that calls out to the boldest among them...",
 	"'We are the Flame!', they cry, 'And Darkness fears us!'",
 	"They descend, spurred on by fantasies of riches and redemption to lay bare whatever blasphemous abnormality may slumber restlessly in that unholy abyss...",
 	"But Darkness is insidious. Terror and Madness can find cracks in the sturdiest of honors, the most resolute of minds...",
