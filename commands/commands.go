@@ -4,31 +4,32 @@ package commands
 import (
 	"bufio"
 	"fmt"
+	"log"
 	"os"
 	"strings"
 	"time"
-
-	"github.com/bruno-chavez/ancestorquotes/quotes"
 )
 
 // AllQuotes prints all quotes.
-func AllQuotes(quoteSlice quotes.QuoteSlice) {
-
-	for _, quote := range quoteSlice {
-		fmt.Println(quote.Quote + "\n")
-	}
+func AllQuotes() []string {
+	return quotes
 }
 
-// Persistent prints a quote every certain amount of time.
-func Persistent(quoteSlice quotes.QuoteSlice, timer int, measure string) {
+// RandomQuote returns a random quote from the collections of quotes
+func RandomQuote() string {
+	return quotes.randomQuote()
+}
 
-	// Running a goroutine makes it possible to print a quote and wait for a stop message at the same time.
+// Persistent prints a Quote every certain amount of time.
+func Persistent(timer int, measure string) {
+
+	// Running a goroutine makes it possible to print a Quote and wait for a stop message at the same time.
 	switch measure {
 	case "minute":
 		go func() {
 			ticking := time.Tick(time.Duration(timer) * time.Minute)
 			for range ticking {
-				fmt.Println(quoteSlice.RandomQuote())
+				fmt.Println(quotes.randomQuote())
 			}
 		}()
 
@@ -36,7 +37,7 @@ func Persistent(quoteSlice quotes.QuoteSlice, timer int, measure string) {
 		go func() {
 			ticking := time.Tick(time.Duration(timer) * time.Second)
 			for range ticking {
-				fmt.Println(quoteSlice.RandomQuote())
+				fmt.Println(quotes.randomQuote())
 			}
 		}()
 	}
@@ -49,38 +50,41 @@ func Persistent(quoteSlice quotes.QuoteSlice, timer int, measure string) {
 	}
 }
 
-// Chat randomly selects a quote ending with a "?" and another one ending with a "." and prints them.
-func Chat(quoteSlice quotes.QuoteSlice) {
+// Chat randomly selects a Quote ending with a "?" and another one ending with a "." and prints them.
+func Chat() {
 	// split quotes into questions and statements
-	var questions quotes.QuoteSlice
-	var statements quotes.QuoteSlice
+	var questions Quote
+	var statements Quote
 
-	for _, quote := range quoteSlice {
-		if strings.HasSuffix(quote.Quote, "?") {
+	for _, quote := range quotes {
+		if strings.HasSuffix(quote, "?") {
 			questions = append(questions, quote)
-		} else if strings.HasSuffix(quote.Quote, ".") {
+		} else if strings.HasSuffix(quote, ".") {
 			statements = append(statements, quote)
 		}
 	}
 	// select one for each at random
-	fmt.Println(questions.RandomQuote())
-	fmt.Println(statements.RandomQuote())
+	fmt.Println(questions.randomQuote())
+	fmt.Println(statements.randomQuote())
 }
 
-// TalkBack prints a quote every time it gets an input message.
-func TalkBack(quoteSlice quotes.QuoteSlice) {
+// TalkBack prints a Quote every time it gets an input message.
+func TalkBack() {
 	userName := ""
 	userReply := ""
 	reader := bufio.NewReader(os.Stdin)
 
 	fmt.Println("Type 'stop' to stop talking with the Ancestor")
 	fmt.Println("Enter your name:")
-	fmt.Scanln(&userName)
+	_, err := fmt.Scanln(&userName)
+	if err != nil {
+		log.Fatal(err)
+	}
 
 	if userName == "stop" {
 		fmt.Println("Good bye nameless fiend!")
-		fmt.Println("Bear in mind my last quote")
-		fmt.Println("Ancestor says: " + quoteSlice.RandomQuote())
+		fmt.Println("Bear in mind my last Quote")
+		fmt.Println("Ancestor says: " + quotes.randomQuote())
 		return
 	}
 	fmt.Println("Hi " + userName)
@@ -90,27 +94,27 @@ func TalkBack(quoteSlice quotes.QuoteSlice) {
 		userReply, _ = reader.ReadString('\n')
 		if userReply == "stop\n" {
 			fmt.Println("Good bye " + userName)
-			fmt.Println("Bear in mind my last quote")
-			fmt.Println("Ancestor says: " + quoteSlice.RandomQuote())
+			fmt.Println("Bear in mind my last Quote")
+			fmt.Println("Ancestor says: " + quotes.randomQuote())
 			break
 		}
-		fmt.Println("Ancestor says: " + quoteSlice.RandomQuote())
+		fmt.Println("Ancestor says: " + quotes.randomQuote())
 	}
 }
 
-// Search filters every word in the database to match an input word and prints every quote that the word is part of.
-func Search(quoteSlice quotes.QuoteSlice, wordToSearch string) {
+// Search filters every word in the database to match an input word and prints every Quote that the word is part of.
+func Search(wordToSearch string) {
 	// matched is used to know if the search got any matches.
 	matched := false
 
 	quoteMatched := make([]string, 0)
 
-	// quote is a QuoteType type.
+	// Quote is a QuoteType type.
 	// wordXSlice is a slice with one word and white-spaces that appear after a filter is applied.
 	// wordXFilter is a string inside a wordXSlice.
-	// This for is a candidate for been transformed into an auxiliary, recursive function.
-	for _, quote := range quoteSlice {
-		wordFirstSlice := strings.Split(quote.Quote, " ")
+	// This "for" is a candidate for been transformed into an auxiliary, recursive function.
+	for _, quote := range quotes {
+		wordFirstSlice := strings.Split(quote, " ")
 
 		for _, wordFirstFilter := range wordFirstSlice {
 			wordSecondSlice := strings.Split(wordFirstFilter, ",")
@@ -122,9 +126,9 @@ func Search(quoteSlice quotes.QuoteSlice, wordToSearch string) {
 					filteredWord := strings.Split(wordThirdFilter, ".")
 
 					// After all the filters are applied the filtered word is compared with the word that is been searched.
-					// If a match is found, the quote that the filtered word belongs to, is printed.
+					// If a match is found, the Quote that the filtered word belongs to, is printed.
 					if filteredWord[0] == wordToSearch {
-						quoteMatched = append(quoteMatched, quote.Quote)
+						quoteMatched = append(quoteMatched, quote)
 						matched = true
 					}
 				}
@@ -157,11 +161,12 @@ func Search(quoteSlice quotes.QuoteSlice, wordToSearch string) {
 				cleanSlice = append(cleanSlice, match)
 			}
 		}
+
 		for _, element := range cleanSlice {
 			fmt.Println(element + "\n")
 		}
-	} else {
-		fmt.Println("'" + wordToSearch + "'" + " is not present in any quote.")
 
+	} else {
+		fmt.Println("'" + wordToSearch + "'" + " is not present in any Quote.")
 	}
 }

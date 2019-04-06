@@ -7,27 +7,16 @@ import (
 	"strconv"
 
 	"github.com/bruno-chavez/ancestorquotes/commands"
-	"github.com/bruno-chavez/ancestorquotes/quotes"
 	"github.com/urfave/cli"
 )
 
-// quoteSlice contains all the quotes in a QuoteSlice type.
-// Used as a global variable to avoid having multiples of the same slice, reducing load times and memory usage.
-var quoteSLice quotes.QuoteSlice
-
 func main() {
-
-	var err error
-	quoteSLice, err = quotes.Parse()
-	if err != nil {
-		log.Fatal(err)
-	}
 
 	app := cli.NewApp()
 	app.Name = "ancestorquotes"
 	app.Author = "bruno-chavez"
 	app.Usage = "Brings quotes from the darkest of dungeons!"
-	app.Version = "1.2"
+	app.Version = "2.0.0"
 	app.Commands = []cli.Command{
 		{
 			Name:    "persistent",
@@ -52,7 +41,7 @@ func main() {
 								" type 'ancestorquotes persistent help' for more information")
 							return nil
 						}
-						commands.Persistent(quoteSLice, timer, "minute")
+						commands.Persistent(timer, "minute")
 
 						return nil
 					},
@@ -75,7 +64,7 @@ func main() {
 								" type 'ancestorquotes persistent help' for more information")
 							return nil
 						}
-						commands.Persistent(quoteSLice, timer, "second")
+						commands.Persistent(timer, "second")
 
 						return nil
 					},
@@ -87,7 +76,7 @@ func main() {
 			Usage:   "Shows all quotes the Ancestor has to offer",
 			Aliases: []string{"a"},
 			Action: func(c *cli.Context) error {
-				commands.AllQuotes(quoteSLice)
+				commands.AllQuotes()
 				return nil
 			},
 		},
@@ -96,7 +85,7 @@ func main() {
 			Usage:   "The Ancestor talks with himself in a maddening fashion",
 			Aliases: []string{"c"},
 			Action: func(c *cli.Context) error {
-				commands.Chat(quoteSLice)
+				commands.Chat()
 				return nil
 			},
 		},
@@ -105,7 +94,7 @@ func main() {
 			Usage:   "You can talk to the Ancestor and the Ancestor replies back in a crazy manner",
 			Aliases: []string{"t"},
 			Action: func(c *cli.Context) error {
-				commands.TalkBack(quoteSLice)
+				commands.TalkBack()
 				return nil
 			},
 		},
@@ -114,7 +103,7 @@ func main() {
 			Usage:   "Searches all quotes the Ancestor has ever said with the word searched in them",
 			Aliases: []string{"s"},
 			Action: func(c *cli.Context) error {
-				commands.Search(quoteSLice, c.Args().First())
+				commands.Search(c.Args().First())
 				return nil
 			},
 		},
@@ -125,12 +114,12 @@ func main() {
 			fmt.Printf("%v is not a valid command.\n"+
 				"Enter ancestorquotes --help to see the list of valid commands.\n", c.Args()[0])
 		} else {
-			fmt.Println(quoteSLice.RandomQuote())
+			fmt.Println(commands.RandomQuote())
 		}
 		return nil
 	}
 
-	err = app.Run(os.Args)
+	err := app.Run(os.Args)
 	if err != nil {
 		log.Fatal(err)
 	}
