@@ -10,17 +10,15 @@ the narrator of the videogame Darkest Dungeon.
 
 ### Executables:
 
-`ancestorquotes` supports Linux and Mac, it can be downloaded [here](https://github.com/bruno-chavez/ancestorquotes/releases) simply click on the binary that has your OS and architecture on its name.
+`ancestorquotes` supports Linux, Mac and Windows! you can download it from here [here](https://github.com/bruno-chavez/ancestorquotes/releases) simply click on the binary that has your OS and architecture on its name.
 
 After it is downloaded, run the file to start using `ancestorquotes`!
 
-Note that it has not been tested on MacOS. If you run into any problems while trying to install or use it, feel free to create an [issue](https://github.com/bruno-chavez/ancestorquotes/issues) and tell me about it.
-
 ### From source code:
 
-Requires Go to be installed on your machine. You can install Go from [here](https://golang.org/doc/install).
+Requires Go to be installed on your machine. You can install Go [here](https://golang.org/doc/install).
 
-Also requires [cli](https://github.com/urfave/cli), a pretty awesome Go package used for the  skeleton of `ancestorquotes`. All of the credit for this app goes to this package!
+Requires [cli](https://github.com/urfave/cli), a pretty awesome Go package used for the  skeleton of `ancestorquotes`. All of the credit for this app goes to this package!
 
 Once installed, and with a correctly configured GOPATH, on a terminal type:
 
@@ -40,8 +38,6 @@ And last, on a terminal type:
 $ go install
 ```
 
-If using the Dockerfile to generate a Docker image for this application (which doesn't require a Go installation or specific operating system only a Docker engine), simply run `docker build . -t <name>` from the base directory of the repository.
-
 ## Updating
 
 To update `ancestorquotes` simply type:
@@ -54,7 +50,7 @@ You can always check your current version by typing:
 
 ```
 $ ancestorquotes --version
-ancestorquotes version 1.2
+ancestorquotes version 2.0.0
 ```
 
 ## Usage
@@ -83,7 +79,7 @@ USAGE:
 
 VERSION:
 
-   1.2
+   2.0.0
 
 AUTHOR:
    bruno-chavez
@@ -228,7 +224,7 @@ $
 This is a pretty small and niche project, created mainly to have fun,
 so do that!
 
-Does not support Windows.
+It has not been tested on Mac or Windows. If you run into any problems while trying to install or use it, feel free to create an [issue](https://github.com/bruno-chavez/ancestorquotes/issues) and tell me about it.
 
 Heavely inspired by [motivate](https://github.com/mubaris/motivate) and
 [this reddit bot](https://www.reddit.com/r/darkestdungeon/comments/7877vx/darkest_dungeon_ancestor_quote_bot/).
@@ -245,4 +241,4 @@ Want to add an awesome new feature? [Fork](https://github.com/bruno-chavez/ances
 
 ## License
 The MIT License (MIT)
-Copyright (c) 2017-2018 Bruno Chavez
+Copyright (c) 2019 Bruno Chavez
