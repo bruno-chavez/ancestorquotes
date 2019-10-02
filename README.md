@@ -10,47 +10,42 @@ the narrator of the videogame Darkest Dungeon.
 
 ### Executables:
 
-`ancestorquotes` supports Linux, Mac and Windows! you can download it from here [here](https://github.com/bruno-chavez/ancestorquotes/releases) simply click on the binary that has your OS and architecture on its name.
+`ancestorquotes` supports Linux, Mac and Windows! you can 
+download it from 
+[here](https://github.com/bruno-chavez/ancestorquotes/releases), 
+simply click on the file that has your OS and architecture 
+on its name.
 
-After it is downloaded, run the file to start using `ancestorquotes`!
+After it is downloaded, run the executable to start using 
+`ancestorquotes`!
 
 ### From source code:
 
-Requires Go to be installed on your machine. You can install Go [here](https://golang.org/doc/install).
+Requires Go to be installed on your machine. 
+You can install Go [here](https://golang.org/doc/install).
 
-Requires [cli](https://github.com/urfave/cli), a pretty awesome Go package used for the  skeleton of `ancestorquotes`. All of the credit for this app goes to this package!
-
-Once installed, and with a correctly configured GOPATH, on a terminal type:
-
-```
-$ go get github.com/bruno-chavez/ancestorquotes
-```
-
-Then go to:
+Once installed, on a terminal type:
 
 ```
-$GOPATH/src/github.com/bruno-chavez/ancestorquotes
+$ git clone https://github.com/bruno-chavez/ancestorquotes
 ```
 
-And last, on a terminal type:
+Enter the directory:
+
+```
+$ cd ancestorquotes
+```
+
+Install dependencies:
+
+```
+$ go list
+```
+
+Install `ancestorquotes`:
 
 ```
 $ go install
-```
-
-## Updating
-
-To update `ancestorquotes` simply type:
-
-```
-$ go get -u github.com/bruno-chavez/ancestorquotes
-```
-
-You can always check your current version by typing:
-
-```
-$ ancestorquotes --version
-ancestorquotes version 2.0.0
 ```
 
 ## Usage
@@ -63,7 +58,6 @@ $ ancestorquotes
 Remind yourself that overconfidence is a slow and insidious killer.
 ```
 
-To run a built Docker image, call `docker run <name>` for a random quote, or call `docker run <name> ./app <arg>`, where `<arg>` is one of the command line options detailed below.
 ## Commands
 
 #### Help:
@@ -224,7 +218,7 @@ $
 This is a pretty small and niche project, created mainly to have fun,
 so do that!
 
-It has not been tested on Mac or Windows. If you run into any problems while trying to install or use it, feel free to create an [issue](https://github.com/bruno-chavez/ancestorquotes/issues) and tell me about it.
+It has not been tested on Mac or Windows. If you run into any problems while trying to install or use it, feel free to create an [issue](https://github.com/bruno-chavez/ancestorquotes/issues).
 
 Heavely inspired by [motivate](https://github.com/mubaris/motivate) and
 [this reddit bot](https://www.reddit.com/r/darkestdungeon/comments/7877vx/darkest_dungeon_ancestor_quote_bot/).
@@ -235,7 +229,7 @@ Check the amazing game this app was inspired in, [Darkest Dungeon](https://store
 
 ## Contribute
 
-Found an bug or an error? Post it in the [issue tracker](https://github.com/bruno-chavez/ancestorquotes/issues).
+Found a bug or an error? Post it in the [issue tracker](https://github.com/bruno-chavez/ancestorquotes/issues).
 
 Want to add an awesome new feature? [Fork](https://github.com/bruno-chavez/ancestorquotes/fork) this repository and add your feature, then send a pull request.
 
