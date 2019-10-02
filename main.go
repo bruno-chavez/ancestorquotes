@@ -6,7 +6,7 @@ import (
 	"os"
 	"strconv"
 
-	"github.com/bruno-chavez/ancestorquotes/commands"
+	"ancestorquotes/commands"
 	"github.com/urfave/cli"
 )
 
@@ -28,19 +28,28 @@ func main() {
 					Usage:   "Intervals in minutes between every quote",
 					Aliases: []string{"m", "minutes"},
 					Action: func(c *cli.Context) error {
+
 						//os.Args[3] is the interval of time between quotes.
 						if len(os.Args) < 4 {
 							fmt.Println("Incorrect use of the persistent commnad," +
 								" type 'ancestorquotes persistent help' for more information")
 							return nil
 						}
-						timer, _ := strconv.Atoi(os.Args[3])
+
+						timer, err := strconv.Atoi(os.Args[3])
+						if err != nil {
+							fmt.Println("Incorrect use of the persistent commnad," +
+								" type 'ancestorquotes persistent help' for more information")
+							return nil
+						}
+
 						// When using strconv on a non numeral string it gets converted 0
 						if timer == 0 {
 							fmt.Println("Incorrect use of the persistent commnad," +
 								" type 'ancestorquotes persistent help' for more information")
 							return nil
 						}
+
 						commands.Persistent(timer, "minute")
 
 						return nil
@@ -51,19 +60,28 @@ func main() {
 					Usage:   "Intervals in seconds between every quote",
 					Aliases: []string{"s", "seconds"},
 					Action: func(c *cli.Context) error {
+
 						//os.Args[3] is the interval of time between quotes.
 						if len(os.Args) < 4 {
 							fmt.Println("Incorrect use of the persistent commnad," +
 								" type 'ancestorquotes persistent help' for more information")
 							return nil
 						}
-						timer, _ := strconv.Atoi(os.Args[3])
+
+						timer, err := strconv.Atoi(os.Args[3])
+						if err != nil {
+							fmt.Println("Incorrect use of the persistent commnad," +
+								" type 'ancestorquotes persistent help' for more information")
+							return nil
+						}
+
 						// When using strconv on a non numeral string it gets converted 0
 						if timer == 0 {
 							fmt.Println("Incorrect use of the persistent commnad," +
 								" type 'ancestorquotes persistent help' for more information")
 							return nil
 						}
+
 						commands.Persistent(timer, "second")
 
 						return nil
@@ -110,12 +128,14 @@ func main() {
 	}
 
 	app.Action = func(c *cli.Context) error {
+
 		if len(c.Args()) > 0 {
 			fmt.Printf("%v is not a valid command.\n"+
 				"Enter ancestorquotes --help to see the list of valid commands.\n", c.Args()[0])
 		} else {
 			fmt.Println(commands.RandomQuote())
 		}
+
 		return nil
 	}
 

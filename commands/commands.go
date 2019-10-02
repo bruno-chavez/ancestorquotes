@@ -63,6 +63,7 @@ func Chat() {
 			statements = append(statements, quote)
 		}
 	}
+
 	// select one for each at random
 	fmt.Println(questions.randomQuote())
 	fmt.Println(statements.randomQuote())
@@ -70,8 +71,9 @@ func Chat() {
 
 // TalkBack prints a Quotes every time it gets an input message.
 func TalkBack() {
-	userName := ""
-	userReply := ""
+
+	var userName string
+	var userReply string
 	reader := bufio.NewReader(os.Stdin)
 
 	fmt.Println("Type 'stop' to stop talking with the Ancestor")
@@ -135,6 +137,7 @@ func Search(wordToSearch string) {
 			}
 		}
 	}
+
 	if matched {
 		// Defining a nested function makes the next part clearer to see.
 		// Candidate for been taking out of the Search func and be used as an auxiliary, separate func instead.
@@ -154,6 +157,7 @@ func Search(wordToSearch string) {
 			if len(cleanSlice) == 0 {
 				cleanSlice = append(cleanSlice, match)
 			}
+
 			// Comparing the element of cleanSlice and unfilteredSlice
 			if inside(match, cleanSlice) {
 				continue
@@ -167,6 +171,6 @@ func Search(wordToSearch string) {
 		}
 
 	} else {
-		fmt.Println("'" + wordToSearch + "'" + " is not present in any Quotes.")
+		fmt.Println("'" + wordToSearch + "'" + " is not present in any quotes.")
 	}
 }
