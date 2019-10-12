@@ -125,6 +125,28 @@ func main() {
 				return nil
 			},
 		},
+		{
+			Name:    "number",
+			Usage:   "Shows a given number of random quotes the Ancestor has to offer",
+			Aliases: []string{"n", "numbers"},
+			Action: func(c *cli.Context) error {
+				if len(os.Args) != 3 {
+					fmt.Println("Incorrect use of the number command, example of correct usage: ancestorquotes number 3")
+					return nil
+				}
+				number, err := strconv.Atoi(os.Args[2])
+				if err != nil {
+					fmt.Println("input parameter must be integer, example of correct usage: ancestorquotes number 3")
+					return nil
+				}
+				if number < 1 {
+					fmt.Println("input parameter must be greater than zero, example of correct usage: ancestorquotes number 3")
+					return nil
+				}
+				commands.NumberOfQuotes(number)
+				return nil
+			},
+		},
 	}
 
 	app.Action = func(c *cli.Context) error {
