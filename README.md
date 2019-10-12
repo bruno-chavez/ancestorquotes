@@ -185,6 +185,20 @@ The bigger the beast, the greater the glory.
 Another life wasted in the pursuit of glory and gold.
 ```
 
+#### Number:
+
+Shows a fixed number of random quotes the Ancestor has to offer:
+
+```
+$ ancestorquotes number 3
+Their cursed champion falls!
+
+The bigger the beast, the greater the glory.
+
+There will be no sleep tonight - the wild shouts and frantic drumming will see to that.
+
+```
+
 ### Sub-commands
 
 #### Persistent:
