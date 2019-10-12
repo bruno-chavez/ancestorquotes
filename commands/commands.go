@@ -174,3 +174,15 @@ func Search(wordToSearch string) {
 		fmt.Println("'" + wordToSearch + "'" + " is not present in any quotes.")
 	}
 }
+
+// NumberOfQuotes returns a given number of random quotes from the collections of quotes
+func NumberOfQuotes(quotesNumber int) {
+	if quotesNumber < 1 {
+		log.Fatal("invalid input param, number must higher than zero")
+	}
+	index := 0
+	for index < quotesNumber {
+		fmt.Println(quotes.randomQuote() + "\n")
+		index++
+	}
+}
