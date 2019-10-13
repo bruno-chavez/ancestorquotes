@@ -84,7 +84,7 @@ func TalkBack() {
 	}
 
 	if userName == "stop" {
-		fmt.Println("Good bye nameless fiend!")
+		fmt.Println("Good bye nameless friend!")
 		fmt.Println("Bear in mind my last Quotes")
 		fmt.Println("Ancestor says: " + quotes.randomQuote())
 		return
@@ -185,4 +185,8 @@ func NumberOfQuotes(quotesNumber int) {
 		fmt.Println(quotes.randomQuote() + "\n")
 		index++
 	}
+}
+
+func GuessTheQuote() {
+
 }
