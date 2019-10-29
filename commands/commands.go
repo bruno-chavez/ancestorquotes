@@ -11,8 +11,10 @@ import (
 )
 
 // AllQuotes prints all quotes.
-func AllQuotes() []string {
-	return quotes
+func AllQuotes() {
+	for _, element := range quotes {
+		fmt.Println(element)
+	}
 }
 
 // RandomQuote returns a random quote from the collections of quotes
