@@ -10,18 +10,18 @@ the narrator of the videogame Darkest Dungeon.
 
 ### Executables:
 
-`ancestorquotes` supports Linux, Mac and Windows! you can 
-download it from 
-[here](https://github.com/bruno-chavez/ancestorquotes/releases), 
-simply click on the file that has your OS and architecture 
+`ancestorquotes` supports Linux, Mac and Windows! you can
+download it from
+[here](https://github.com/bruno-chavez/ancestorquotes/releases),
+simply click on the file that has your OS and architecture
 on its name.
 
-After it is downloaded, run the executable to start using 
+After it is downloaded, run the executable to start using
 `ancestorquotes`!
 
 ### From source code:
 
-Requires Go to be installed on your machine. 
+Requires Go to be installed on your machine.
 You can install Go [here](https://golang.org/doc/install).
 
 Once installed, on a terminal type:
@@ -84,6 +84,7 @@ COMMANDS:
      chat, c        The Ancestor talks with himself in a maddening fashion
      talkback, t    You can talk to the Ancestor and the Ancestor replies back in a crazy manner
      search, s      Searches all quotes the Ancestor has ever said with the word searched in them
+     number, n      Shows a given number of random quotes the Ancestor has to offer
      help, h        Shows a list of commands or help for one command
 
 GLOBAL OPTIONS:
