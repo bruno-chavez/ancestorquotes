@@ -17,6 +17,10 @@ func (q Quotes) randomQuote() string {
 	return q[rand.Intn(len(q))]
 }
 
+func (q Quotes) NumberOfQuotes() int {
+	return len(quotes)
+}
+
 // Contains all the quotes fom the game
 var quotes = Quotes{"There is a place, beneath those ancient ruins, in the moor, that calls out to the boldest among them...",
 	"'We are the Flame!', they cry, 'And Darkness fears us!'",
