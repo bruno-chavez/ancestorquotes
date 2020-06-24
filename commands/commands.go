@@ -8,6 +8,7 @@ import (
 	"os"
 	"strings"
 	"time"
+	"strconv"
 )
 
 // AllQuotes prints all quotes.
@@ -181,6 +182,10 @@ func Search(wordToSearch string) {
 func NumberOfQuotes(quotesNumber int) {
 	if quotesNumber < 1 {
 		log.Fatal("invalid input param, number must higher than zero")
+	}
+	if quotesNumber > quotes.NumberOfQuotes() {
+		log.Fatal("invalid input param, number cannot exceed the numbe of quotes: " +
+			strconv.Itoa(quotes.NumberOfQuotes()))
 	}
 	index := 0
 	for index < quotesNumber {
