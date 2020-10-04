@@ -6,9 +6,9 @@ import (
 	"fmt"
 	"log"
 	"os"
+	"strconv"
 	"strings"
 	"time"
-	"strconv"
 )
 
 // AllQuotes prints all quotes.
@@ -23,27 +23,16 @@ func RandomQuote() string {
 	return quotes.randomQuote()
 }
 
-// Persistent prints a Quotes every certain amount of time.
-func Persistent(timer int, measure string) {
+// Persistent prints a Quotes every duration of time.
+func Persistent(duration time.Duration) {
 
 	// Running a goroutine makes it possible to print a Quotes and wait for a stop message at the same time.
-	switch measure {
-	case "minute":
-		go func() {
-			ticking := time.Tick(time.Duration(timer) * time.Minute)
-			for range ticking {
-				fmt.Println(quotes.randomQuote())
-			}
-		}()
-
-	case "second":
-		go func() {
-			ticking := time.Tick(time.Duration(timer) * time.Second)
-			for range ticking {
-				fmt.Println(quotes.randomQuote())
-			}
-		}()
-	}
+	go func() {
+		ticking := time.Tick(duration)
+		for range ticking {
+			fmt.Println(quotes.randomQuote())
+		}
+	}()
 
 	scanner := bufio.NewScanner(os.Stdin)
 	for scanner.Scan() {
