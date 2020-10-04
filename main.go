@@ -5,8 +5,10 @@ import (
 	"log"
 	"os"
 	"strconv"
+	"time"
 
 	"ancestorquotes/commands"
+
 	"github.com/urfave/cli"
 )
 
@@ -16,13 +18,38 @@ func main() {
 	app.Name = "ancestorquotes"
 	app.Author = "bruno-chavez"
 	app.Usage = "Brings quotes from the darkest of dungeons!"
-	app.Version = "2.0.0"
+	app.Version = "2.1.0"
 	app.Commands = []cli.Command{
 		{
 			Name:    "persistent",
 			Usage:   "Makes the Ancestor say a quote every certain amount of time",
 			Aliases: []string{"p"},
 			Subcommands: []cli.Command{
+				{
+					Name:    "duration",
+					Usage:   `Intervals between every quote in the form of a duration string (ex: "5m" or "1h30m10s")`,
+					Aliases: []string{"d", "duration"},
+					Action: func(c *cli.Context) error {
+
+						//os.Args[3] is the interval of time between quotes.
+						if len(os.Args) < 4 {
+							fmt.Println("Incorrect use of the persistent commnad," +
+								" type 'ancestorquotes persistent help' for more information")
+							return nil
+						}
+
+						duration, err := time.ParseDuration(os.Args[3])
+						if err != nil {
+							fmt.Println("Incorrect use of the persistent commnad," +
+								" type 'ancestorquotes persistent help' for more information")
+							return nil
+						}
+
+						commands.Persistent(duration)
+
+						return nil
+					},
+				},
 				{
 					Name:    "minute",
 					Usage:   "Intervals in minutes between every quote",
@@ -50,7 +77,7 @@ func main() {
 							return nil
 						}
 
-						commands.Persistent(timer, "minute")
+						commands.Persistent(time.Duration(timer) * time.Minute)
 
 						return nil
 					},
@@ -82,7 +109,7 @@ func main() {
 							return nil
 						}
 
-						commands.Persistent(timer, "second")
+						commands.Persistent(time.Duration(timer) * time.Second)
 
 						return nil
 					},
