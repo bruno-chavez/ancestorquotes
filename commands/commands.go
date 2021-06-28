@@ -6,9 +6,9 @@ import (
 	"fmt"
 	"log"
 	"os"
+	"strconv"
 	"strings"
 	"time"
-	"strconv"
 )
 
 // AllQuotes prints all quotes.
@@ -191,5 +191,26 @@ func NumberOfQuotes(quotesNumber int) {
 	for index < quotesNumber {
 		fmt.Println(quotes.randomQuote() + "\n")
 		index++
+	}
+}
+
+// Typed prints a random quote character-by-character, like a typewriter.
+func Typed() {
+	s := RandomQuote()
+	output := make([]rune, 0, len(s))
+
+	for i, char := range s {
+		output = append(output, char)
+		if i == len(s)-1 {
+			fmt.Printf("%s", string(output))
+			time.Sleep(200 * time.Millisecond)
+			fmt.Println()
+			return
+		}
+		fmt.Printf("%s\r", string(output))
+		if char == ' ' {
+			continue
+		}
+		time.Sleep(120 * time.Millisecond)
 	}
 }
