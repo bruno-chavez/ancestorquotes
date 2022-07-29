@@ -147,6 +147,16 @@ func main() {
 				return nil
 			},
 		},
+		{
+			Name:    "typed",
+			Usage:   "Prints a random quote character-by-character, like a typewriter.",
+			Aliases: []string{"typed"},
+			Action: func(c *cli.Context) error {
+				commands.Typed()
+
+				return nil
+			},
+		},
 	}
 
 	app.Action = func(c *cli.Context) error {
