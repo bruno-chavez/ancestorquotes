@@ -200,6 +200,16 @@ There will be no sleep tonight - the wild shouts and frantic drumming will see t
 
 ```
 
+#### Clip
+
+The ancestor copies a random quote onto the clipboard:
+
+```
+$ ancestorquotes clip
+The Ancestor conveyed it to your clipboard !
+
+```
+
 ### Sub-commands
 
 #### Persistent:

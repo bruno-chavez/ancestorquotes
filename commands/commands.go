@@ -9,6 +9,8 @@ import (
 	"strconv"
 	"strings"
 	"time"
+
+	clip "github.com/atotto/clipboard"
 )
 
 // AllQuotes prints all quotes.
@@ -213,4 +215,10 @@ func Typed() {
 		}
 		time.Sleep(120 * time.Millisecond)
 	}
+}
+
+func Clip() {
+	quote := RandomQuote()
+	clip.WriteAll(quote)
+	fmt.Println("The Ancestor conveyed it to your clipboard !")
 }

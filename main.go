@@ -7,6 +7,7 @@ import (
 	"strconv"
 
 	"ancestorquotes/commands"
+
 	"github.com/urfave/cli"
 )
 
@@ -153,6 +154,15 @@ func main() {
 			Aliases: []string{"typed"},
 			Action: func(c *cli.Context) error {
 				commands.Typed()
+
+				return nil
+			},
+		}, {
+			Name:    "clip",
+			Usage:   "Copies a random quote onto the clipboard",
+			Aliases: []string{"cp"},
+			Action: func(c *cli.Context) error {
+				commands.Clip()
 
 				return nil
 			},
