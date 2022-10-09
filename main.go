@@ -160,7 +160,7 @@ func main() {
 		}, {
 			Name:    "clip",
 			Usage:   "Copies a random quote onto the clipboard",
-			Aliases: []string{"c"},
+			Aliases: []string{"cp"},
 			Action: func(c *cli.Context) error {
 				commands.Clip()
 
